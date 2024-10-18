@@ -19,9 +19,9 @@ const plans = [
   },
 ];
 
-const PricingPlans = ({ className = "" }) => {
+const PricingPlans = () => {
   return (
-    <section id="precios" className={`py-20 px-4 ${className}`}>
+    <section id="precios" className="py-20 px-4">
       <h2 className="text-3xl font-bold text-center mb-12">Nuestros Planes</h2>
       <div className="flex flex-wrap justify-center gap-8">
         {plans.map((plan, index) => (

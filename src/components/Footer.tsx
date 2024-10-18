@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Footer = ({ className = "" }) => {
+const Footer = () => {
   return (
-    <footer className={`py-8 px-4 ${className}`}>
+    <footer className="bg-gray-800 py-8 px-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <div className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
           <p>&copy; 2024 IsCoders S.A. Todos los derechos reservados.</p>
