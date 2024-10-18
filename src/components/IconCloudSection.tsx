@@ -1,91 +1,95 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
-import Marquee from "@/components/ui/marquee";
 import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const services = [
   {
     title: "Get a Custom Software",
     description: "Tailored software solutions for your business.",
     icon: <FaLaptopCode size={32} />,
+    avatar: "/avatars/01.png",
+    name: "John Doe",
+    username: "@johndoe"
   },
   {
     title: "Get your WebSite",
     description: "Modern and responsive website design.",
     icon: <FaGlobe size={32} />,
+    avatar: "/avatars/02.png",
+    name: "Jane Smith",
+    username: "@janesmith"
   },
   {
     title: "Get your own App",
     description: "Mobile app development for iOS and Android.",
     icon: <FaMobileAlt size={32} />,
+    avatar: "/avatars/03.png",
+    name: "Mike Johnson",
+    username: "@mikejohnson"
   },
   {
     title: "Start with AI",
     description: "Integrate AI to boost your business operations.",
     icon: <FaRobot size={32} />,
+    avatar: "/avatars/04.png",
+    name: "Emily Brown",
+    username: "@emilybrown"
   },
 ];
-
-const firstRow = services.slice(0, services.length / 2);
-const secondRow = services.slice(services.length / 2);
 
 const ServiceCard = ({
   title,
   description,
   icon,
+  avatar,
+  name,
+  username,
 }: {
   title: string;
   description: string;
   icon: JSX.Element;
+  avatar: string;
+  name: string;
+  username: string;
 }) => {
   return (
-    <figure
-      className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        {icon}
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
-            {title}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">
-            {description}
-          </p>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 m-4 max-w-sm">
+      <div className="flex items-center mb-4">
+        <Avatar className="h-10 w-10 mr-3">
+          <AvatarImage src={avatar} alt={name} />
+          <AvatarFallback>{name[0]}</AvatarFallback>
+        </Avatar>
+        <div>
+          <h3 className="font-semibold text-lg">{name}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{username}</p>
         </div>
       </div>
-    </figure>
+      <p className="text-gray-700 dark:text-gray-300 mb-4">{description}</p>
+      <div className="flex items-center text-blue-500 dark:text-blue-400">
+        {icon}
+        <span className="ml-2 font-medium">{title}</span>
+      </div>
+    </div>
   );
 };
 
 const IconCloudSection = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+    <section className="py-20 px-4 bg-gray-100 dark:bg-gray-900">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-3xl font-bold text-center mb-12 text-white"
+        className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white"
       >
-        Elegi el servicio que mas se ajuste a ti:
+        Elige el servicio que más se ajuste a ti:
       </motion.h2>
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-black md:shadow-xl">
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
-        </Marquee>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black"></div>
+      <div className="flex flex-wrap justify-center">
+        {services.map((service, index) => (
+          <ServiceCard key={index} {...service} />
+        ))}
       </div>
     </section>
   );
