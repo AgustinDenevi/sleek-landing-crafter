@@ -9,13 +9,13 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+    <div className="min-h-screen bg-gray-900 text-white">
       <Header />
       <Hero />
-      <IconCloudSection className="bg-gradient-to-b from-black to-gray-900" />
-      <PricingPlans className="bg-gradient-to-b from-gray-900 to-black" />
-      <Testimonials className="bg-gradient-to-b from-black to-gray-900" />
-      <Footer className="bg-gradient-to-b from-gray-900 to-black" />
+      <IconCloudSection />
+      <PricingPlans />
+      <Testimonials />
+      <Footer />
     </div>
   );
 };

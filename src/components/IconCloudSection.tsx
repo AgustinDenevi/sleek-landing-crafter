@@ -2,11 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 
-interface IconCloudSectionProps {
-  className?: string;
-}
-
-const IconCloudSection: React.FC<IconCloudSectionProps> = ({ className }) => {
+const IconCloudSection = () => {
   const services = [
     { title: "Get a Custom Software" },
     { title: "Get a Mobile App" },
@@ -14,7 +10,7 @@ const IconCloudSection: React.FC<IconCloudSectionProps> = ({ className }) => {
   ];
 
   return (
-    <section className={`py-20 px-4 ${className}`}>
+    <section className="py-20 px-4">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

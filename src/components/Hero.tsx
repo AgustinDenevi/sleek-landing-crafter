@@ -4,7 +4,7 @@ import HyperText from './magicui/hyper-text';
 import Meteors from './magicui/meteors';
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Engine, ISourceOptions } from "@tsparticles/engine";
+import type { ISourceOptions, Engine } from "@tsparticles/engine";
 
 const Hero = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -16,9 +16,6 @@ const Hero = () => {
       color: {
         value: "transparent",
       },
-    },
-    fullScreen: {
-      enable: false,
     },
     fpsLimit: 120,
     interactivity: {
@@ -33,6 +30,7 @@ const Hero = () => {
         },
         resize: {
           enable: true,
+          mode: "bounce"
         },
       },
       modes: {
@@ -69,7 +67,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          value: 800,
+          value_area: 800,
         },
         value: 80,
       },
@@ -97,7 +95,6 @@ const Hero = () => {
         id="tsparticles"
         particlesInit={particlesInit}
         options={particlesOptions}
-        className="absolute inset-0"
       />
       <Meteors number={20} />
       <div className="relative z-10">
