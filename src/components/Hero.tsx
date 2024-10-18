@@ -20,15 +20,15 @@ const Hero = () => {
       <Particles
         className="absolute inset-0"
         quantity={100}
-        staticity={30}
-        color="255,255,255"
+        staticity={30} // Verificar si esta propiedad es necesaria
+        color="255,255,255" // Asegúrate de que este formato sea correcto
         ease={50}
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-        <div className="text-white text-xl font-bold">'<'<strong>Is</strong>Coders'/>'</div>
+        <div className="text-white text-xl font-bold"><strong>Is</strong>Coders</div>
         <div>
-          <Button variant="ghost" className="text-white mr-2">Log in</Button>
-          <Button variant="outline" className="text-white">Sign up</Button>
+          <Button variant="ghost" className="text-white mr-2" aria-label="Log in">Log in</Button>
+          <Button variant="outline" className="text-white" aria-label="Sign up">Sign up</Button>
         </div>
       </nav>
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -56,7 +56,7 @@ const Hero = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xl text-gray-300 mb-8"
         >
-          <i> The future is now, the future IsCoders.</i> 
+          <i>The future is now, the future IsCoders.</i> 
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
