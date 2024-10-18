@@ -27,8 +27,8 @@ const services = [
   },
 ];
 
-const firstRow = services.slice(0, services.length / 2);
-const secondRow = services.slice(services.length / 2);
+const firstRow = services;
+const secondRow = [...services].reverse();
 
 const ServiceCard = ({
   title,
@@ -42,7 +42,7 @@ const ServiceCard = ({
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
@@ -64,7 +64,7 @@ const ServiceCard = ({
 
 const IconCloudSection = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+    <section className="py-20 px-4">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,13 +73,13 @@ const IconCloudSection = () => {
       >
         Elegi el servicio que mas se ajuste a ti:
       </motion.h2>
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-black md:shadow-xl">
-        <Marquee pauseOnHover className="[--duration:20s]">
+      <div className="relative flex h-[300px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+        <Marquee pauseOnHover className="[--duration:40s]">
           {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
+        <Marquee reverse pauseOnHover className="[--duration:40s] mt-4">
           {secondRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
