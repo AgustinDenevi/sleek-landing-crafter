@@ -27,6 +27,9 @@ const services = [
   },
 ];
 
+const firstRow = services.slice(0, services.length / 2);
+const secondRow = services.slice(services.length / 2);
+
 const ServiceCard = ({
   title,
   description,
@@ -60,9 +63,6 @@ const ServiceCard = ({
 };
 
 const IconCloudSection = () => {
-  // Duplicar los servicios para llenar más espacio
-  const extendedServices = [...services, ...services, ...services];
-
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
       <motion.h2
@@ -74,14 +74,14 @@ const IconCloudSection = () => {
         Elegi el servicio que mas se ajuste a ti:
       </motion.h2>
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-black md:shadow-xl">
-        <Marquee pauseOnHover className="[--duration:40s]">
-          {extendedServices.map((service, index) => (
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:40s]">
-          {extendedServices.map((service, index) => (
-            <ServiceCard key={index + extendedServices.length} {...service} />
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((service, index) => (
+            <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
