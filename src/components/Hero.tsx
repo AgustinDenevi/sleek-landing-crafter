@@ -11,8 +11,8 @@ const Hero = () => {
       transition={{ duration: 1 }}
       className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden"
     >
-      <div className="absolute inset-0 w-full h-full">
-        <Meteors number={30} />
+      <div className="absolute inset-0 w-[150%] h-[150%] left-[-25%] top-[-25%]">
+        <Meteors number={40} />
       </div>
       <div className="relative z-10">
         <HyperText
