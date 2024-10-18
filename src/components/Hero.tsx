@@ -4,10 +4,10 @@ import HyperText from './magicui/hyper-text';
 import Meteors from './magicui/meteors';
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { ISourceOptions } from "@tsparticles/engine";
+import type { ISourceOptions, Engine } from "@tsparticles/engine";
 
 const Hero = () => {
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
@@ -28,7 +28,10 @@ const Hero = () => {
           enable: true,
           mode: "repulse",
         },
-        resize: true,
+        resize: {
+          enable: true,
+          mode: "bounce"
+        },
       },
       modes: {
         push: {
@@ -64,7 +67,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
@@ -90,7 +93,7 @@ const Hero = () => {
     >
       <Particles
         id="tsparticles"
-        init={particlesInit}
+        particlesInit={particlesInit}
         options={particlesOptions}
       />
       <Meteors number={20} />
