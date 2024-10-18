@@ -26,10 +26,7 @@ const Hero = () => {
   }, []);
 
   const particlesOptions: ISourceOptions = {
-    fullScreen: {
-      enable: true,
-      zIndex: -1
-    },
+    fullScreen: false,
     background: {
       color: {
         value: "transparent",
@@ -46,7 +43,11 @@ const Hero = () => {
           enable: true,
           mode: "repulse",
         },
-        resize: true,
+        resize: {
+          enable: true,
+          delay: 0,
+          duration: 0.5,
+        },
       },
       modes: {
         push: {
@@ -89,7 +90,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
@@ -113,11 +114,12 @@ const Hero = () => {
       transition={{ duration: 1 }}
       className="relative min-h-screen w-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden"
     >
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particlesOptions}
-      />
+      <div className="absolute inset-0 z-0 opacity-50">
+        <Particles
+          id="tsparticles"
+          options={particlesOptions}
+        />
+      </div>
       <Meteors number={20} />
       <div className="relative z-10">
         <HyperText
