@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import IconCloudSection from '../components/IconCloudSection';
@@ -12,10 +11,10 @@ const Index = () => {
     <div className="min-h-screen bg-gray-900 text-white">
       <Header />
       <Hero />
-      <IconCloudSection />
-      <PricingPlans />
-      <Testimonials />
-      <Footer />
+      <IconCloudSection className="bg-gradient-to-b from-gray-900 to-gray-800" />
+      <PricingPlans className="bg-gradient-to-b from-gray-800 to-gray-900" />
+      <Testimonials className="bg-gradient-to-b from-gray-900 to-gray-800" />
+      <Footer className="bg-gradient-to-b from-gray-800 to-gray-900" />
     </div>
   );
 };
