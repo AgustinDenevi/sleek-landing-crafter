@@ -25,7 +25,7 @@ const Hero = () => {
         ease={50}
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-        <div className="text-white text-xl font-bold">Magic UI</div>
+        <div className="text-white text-xl font-bold">'<'<strong>Is</strong>Coders'/>'</div>
         <div>
           <Button variant="ghost" className="text-white mr-2">Log in</Button>
           <Button variant="outline" className="text-white">Sign up</Button>
@@ -39,7 +39,7 @@ const Hero = () => {
           className="mb-4"
         >
           <span className="px-3 py-1 text-sm font-semibold bg-gray-800 text-gray-300 rounded-full">
-            + Introducing Magic UI Template
+            + Software Consultant
           </span>
         </motion.div>
         <motion.h1
@@ -48,7 +48,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
         >
-          Magic UI is the new way to build landing pages.
+          <strong>Is</strong>Coders
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ const Hero = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xl text-gray-300 mb-8"
         >
-          Beautifully designed, animated components and templates built with Tailwind CSS, React, and Framer Motion.
+          <i> The future is now, the future IsCoders.</i> 
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           <Button size="lg" className="text-lg px-6 py-3">
-            Get Started for free →
+            Get Started Now →
           </Button>
         </motion.div>
       </div>
