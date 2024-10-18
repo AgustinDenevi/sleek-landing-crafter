@@ -17,6 +17,9 @@ const Hero = () => {
         value: "transparent",
       },
     },
+    fullScreen: {
+      enable: false,
+    },
     fpsLimit: 120,
     interactivity: {
       events: {
@@ -30,7 +33,6 @@ const Hero = () => {
         },
         resize: {
           enable: true,
-          mode: "bounce"
         },
       },
       modes: {
@@ -67,7 +69,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          area: 800,
         },
         value: 80,
       },
@@ -93,8 +95,9 @@ const Hero = () => {
     >
       <Particles
         id="tsparticles"
-        particlesInit={particlesInit}
+        init={particlesInit}
         options={particlesOptions}
+        className="absolute inset-0"
       />
       <Meteors number={20} />
       <div className="relative z-10">

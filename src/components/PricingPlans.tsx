@@ -1,6 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+interface PricingPlansProps {
+  className?: string;
+}
+
 const plans = [
   {
     name: 'Standard',
@@ -19,9 +23,9 @@ const plans = [
   },
 ];
 
-const PricingPlans = () => {
+const PricingPlans: React.FC<PricingPlansProps> = ({ className }) => {
   return (
-    <section id="precios" className="py-20 px-4">
+    <section id="precios" className={`py-20 px-4 ${className}`}>
       <h2 className="text-3xl font-bold text-center mb-12">Nuestros Planes</h2>
       <div className="flex flex-wrap justify-center gap-8">
         {plans.map((plan, index) => (
