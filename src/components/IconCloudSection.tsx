@@ -71,10 +71,9 @@ const IconCloudSection = () => {
         transition={{ duration: 0.5 }}
         className="text-3xl font-bold text-center mb-12 text-white"
       >
-        Elegi el servicio que mas se ajuste a ti:
+        Elegi el servicio que más se ajuste a ti:
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
-
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0"> {/* Cambiado a gap-0 */}
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
@@ -91,5 +90,6 @@ const IconCloudSection = () => {
     </section>
   );
 };
+
 
 export default IconCloudSection;
