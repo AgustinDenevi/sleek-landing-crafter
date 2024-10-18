@@ -4,7 +4,7 @@ import HyperText from './magicui/hyper-text';
 import Meteors from './magicui/meteors';
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { ISourceOptions, Engine } from "@tsparticles/engine";
+import type { Engine, ISourceOptions } from "@tsparticles/engine";
 
 const Hero = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -64,7 +64,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
@@ -90,7 +90,7 @@ const Hero = () => {
     >
       <Particles
         id="tsparticles"
-        init={particlesInit}
+        particlesInit={particlesInit}
         options={particlesOptions}
       />
       <Meteors number={20} />
