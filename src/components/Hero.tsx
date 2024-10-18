@@ -12,7 +12,7 @@ const Hero = () => {
     >
       <HyperText
         className="text-6xl font-bold mb-4 text-white font-mono"
-        text="IsCoders"
+        text="IsCoders S.A."
       />
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
