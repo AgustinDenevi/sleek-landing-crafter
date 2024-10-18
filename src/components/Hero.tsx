@@ -69,7 +69,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          area: 800,
         },
         value: 80,
       },
@@ -95,7 +95,7 @@ const Hero = () => {
     >
       <Particles
         id="tsparticles"
-        particlesInit={particlesInit}
+        init={particlesInit}
         options={particlesOptions}
         className="absolute inset-0"
       />
