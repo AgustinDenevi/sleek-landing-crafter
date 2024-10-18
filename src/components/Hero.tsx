@@ -11,7 +11,7 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-br from-gray-900 to-gray-800"
     >
       <HyperText
-        className="text-6xl font-bold mb-4"
+        className="text-6xl font-bold mb-4 text-white"
         text="IsCoders"
       />
       <motion.h2
