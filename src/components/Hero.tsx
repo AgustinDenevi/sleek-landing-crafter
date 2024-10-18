@@ -29,12 +29,16 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden"
+      className="relative min-h-screen w-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden"
     >
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
+          fullScreen: {
+            enable: true,
+            zIndex: -1
+          },
           background: {
             color: {
               value: "transparent",
@@ -81,19 +85,21 @@ const Hero = () => {
                 default: "bounce",
               },
               random: false,
-              speed: 1,
+              speed: 0.5, // Reduced speed for slower movement
               straight: false,
               parallax: true,
               attract: {
                 enable: true,
-                rotateX: mousePosition.x * 0.001,
-                rotateY: mousePosition.y * 0.001,
+                rotate: {
+                  x: mousePosition.x * 0.0001, // Reduced multiplier for slower effect
+                  y: mousePosition.y * 0.0001  // Reduced multiplier for slower effect
+                }
               },
             },
             number: {
               density: {
                 enable: true,
-                area: 800,
+                value_area: 800,
               },
               value: 80,
             },
