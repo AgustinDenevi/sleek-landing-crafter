@@ -78,10 +78,16 @@ const IconCloudSection = () => {
           {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
+          {firstRow.map((service, index) => (
+            <ServiceCard key={`repeat-${index}`} {...service} />
+          ))}
         </Marquee>
         <Marquee reverse pauseOnHover className="[--duration:20s]">
           {secondRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
+          ))}
+          {secondRow.map((service, index) => (
+            <ServiceCard key={`repeat-${index}`} {...service} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
