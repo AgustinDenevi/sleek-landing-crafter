@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export interface HyperTextProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface HyperTextProps extends HTMLMotionProps<"div"> {
   text: string;
 }
 
