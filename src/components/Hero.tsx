@@ -46,7 +46,6 @@ const Hero = () => {
         resize: {
           enable: true,
           delay: 0,
-          duration: 0.5,
         },
       },
       modes: {
@@ -90,7 +89,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          area: 800,
         },
         value: 80,
       },
@@ -117,6 +116,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 opacity-50">
         <Particles
           id="tsparticles"
+          init={particlesInit}
           options={particlesOptions}
         />
       </div>
