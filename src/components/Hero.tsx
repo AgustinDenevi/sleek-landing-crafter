@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HyperText from './magicui/hyper-text';
 import Meteors from './magicui/meteors';
@@ -6,8 +6,22 @@ import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
@@ -69,6 +83,12 @@ const Hero = () => {
               random: false,
               speed: 1,
               straight: false,
+              parallax: true,
+              attract: {
+                enable: true,
+                rotateX: mousePosition.x * 0.001,
+                rotateY: mousePosition.y * 0.001,
+              },
             },
             number: {
               density: {
