@@ -4,11 +4,12 @@ import HyperText from './magicui/hyper-text';
 import Meteors from './magicui/meteors';
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import type { ISourceOptions, Engine } from "@tsparticles/engine";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
@@ -24,6 +25,87 @@ const Hero = () => {
     };
   }, []);
 
+  const particlesOptions: ISourceOptions = {
+    fullScreen: {
+      enable: true,
+      zIndex: -1
+    },
+    background: {
+      color: {
+        value: "transparent",
+      },
+    },
+    fpsLimit: 120,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        onHover: {
+          enable: true,
+          mode: "repulse",
+        },
+        resize: true,
+      },
+      modes: {
+        push: {
+          quantity: 4,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+      },
+    },
+    particles: {
+      color: {
+        value: "#ffffff",
+      },
+      links: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 0.5,
+        straight: false,
+        attract: {
+          enable: true,
+          rotate: {
+            x: mousePosition.x * 0.0001,
+            y: mousePosition.y * 0.0001
+          }
+        },
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 5 },
+      },
+    },
+    detectRetina: true,
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -34,87 +116,7 @@ const Hero = () => {
       <Particles
         id="tsparticles"
         init={particlesInit}
-        options={{
-          fullScreen: {
-            enable: true,
-            zIndex: -1
-          },
-          background: {
-            color: {
-              value: "transparent",
-            },
-          },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
-            },
-            modes: {
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: "#ffffff",
-            },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.5,
-              width: 1,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
-              speed: 0.5, // Reduced speed for slower movement
-              straight: false,
-              parallax: true,
-              attract: {
-                enable: true,
-                rotate: {
-                  x: mousePosition.x * 0.0001, // Reduced multiplier for slower effect
-                  y: mousePosition.y * 0.0001  // Reduced multiplier for slower effect
-                }
-              },
-            },
-            number: {
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-          },
-          detectRetina: true,
-        }}
+        options={particlesOptions}
       />
       <Meteors number={20} />
       <div className="relative z-10">
