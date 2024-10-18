@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import HyperText from './magicui/hyper-text';
-import Particles, { ISourceOptions } from "react-tsparticles";
+import Particles from "react-tsparticles";
+import { Engine } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
 
 const Hero = () => {
-  const particlesInit = React.useCallback(async (engine: any) => {
+  const particlesInit = React.useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
 
-  const particlesOptions: ISourceOptions = {
+  const particlesOptions = {
     background: {
       color: {
         value: "#000000",
@@ -62,7 +63,7 @@ const Hero = () => {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          area: 800,
         },
         value: 80,
       },
