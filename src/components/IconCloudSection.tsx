@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
-import { BentoGrid, BentoCard } from "@/components/magicui/bento-grid";
-import Marquee from "@/components/magicui/marquee";
+import { BentoGrid, BentoCard } from "./magicui/bento-grid";
+import Marquee from "./magicui/marquee";
 import { cn } from "@/lib/utils";
 
 const services = [
