@@ -9,21 +9,22 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden"
-      style={{
-        background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
-      }}
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black"
     >
-      <div className="absolute inset-0 w-full h-full">
-        <Particles
-          className="absolute inset-0"
-          quantity={100}
-          staticity={30}
-          color="#ffffff"
-          ease={30}
-        />
-      </div>
-      <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
+        }}
+      />
+      <Particles
+        className="absolute inset-0"
+        quantity={100}
+        staticity={30}
+        color="255,255,255"
+        ease={50}
+      />
+      <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
         <div className="text-white text-xl font-bold">Magic UI</div>
         <div>
           <Button variant="ghost" className="text-white mr-2">Log in</Button>
@@ -47,7 +48,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
         >
-          Simple pricing for everyone.
+          Magic UI is the new way to build landing pages.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +56,7 @@ const Hero = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xl text-gray-300 mb-8"
         >
-          Choose an affordable plan that's packed with the best features for engaging your audience, creating customer loyalty, and driving sales.
+          Beautifully designed, animated components and templates built with Tailwind CSS, React, and Framer Motion.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
