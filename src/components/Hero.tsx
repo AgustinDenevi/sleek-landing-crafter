@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import HyperText from './magicui/hyper-text';
-import Meteors from "@/components/magicui/meteors";
+import Meteors from "./magicui/meteors";
 
 const Hero = () => {
   return (
