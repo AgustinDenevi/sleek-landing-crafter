@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
-import Marquee from "@/components/magicui/marquee";
+import Marquee from "@/components/ui/marquee";
 import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
 
 const services = [
