@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Header from '../components/Header';
 import Hero from '../components/Hero';
 import IconCloudSection from '../components/IconCloudSection';
 import PricingPlans from '../components/PricingPlans';
@@ -9,8 +8,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <Header />
+    <div className="min-h-screen bg-black text-white">
       <Hero />
       <IconCloudSection />
       <PricingPlans />
