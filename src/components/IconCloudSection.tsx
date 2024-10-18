@@ -27,6 +27,9 @@ const services = [
   },
 ];
 
+const firstRow = services.slice(0, services.length / 2);
+const secondRow = services.slice(services.length / 2);
+
 const ServiceCard = ({
   title,
   description,
@@ -39,7 +42,7 @@ const ServiceCard = ({
   return (
     <figure
       className={cn(
-        "relative w-60 cursor-pointer overflow-hidden rounded-xl border p-3 mx-1",
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
@@ -71,26 +74,14 @@ const IconCloudSection = () => {
         Elegi el servicio que mas se ajuste a ti:
       </motion.h2>
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-black md:shadow-xl">
-        <Marquee pauseOnHover className="[--duration:40s]">
-          {services.map((service, index) => (
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
-          ))}
-          {services.map((service, index) => (
-            <ServiceCard key={`repeat-1-${index}`} {...service} />
-          ))}
-          {services.map((service, index) => (
-            <ServiceCard key={`repeat-2-${index}`} {...service} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:40s]">
-          {services.map((service, index) => (
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
-          ))}
-          {services.map((service, index) => (
-            <ServiceCard key={`repeat-1-${index}`} {...service} />
-          ))}
-          {services.map((service, index) => (
-            <ServiceCard key={`repeat-2-${index}`} {...service} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
