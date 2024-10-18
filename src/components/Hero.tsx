@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import Meteors from "./magicui/meteors";
+import Particles from "./magicui/particles";
 
 const Hero = () => {
   return (
@@ -9,10 +9,19 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden"
+      style={{
+        background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
+      }}
     >
-      <div className="absolute inset-0 w-[150vw] h-screen left-[-25vw] top-0">
-        <Meteors number={60} />
+      <div className="absolute inset-0 w-full h-full">
+        <Particles
+          className="absolute inset-0"
+          quantity={100}
+          staticity={30}
+          color="#ffffff"
+          ease={30}
+        />
       </div>
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
         <div className="text-white text-xl font-bold">Magic UI</div>
@@ -38,7 +47,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
         >
-          Magic UI is the new way to build landing pages.
+          Simple pricing for everyone.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +55,7 @@ const Hero = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xl text-gray-300 mb-8"
         >
-          Beautifully designed, animated components and templates built with Tailwind CSS, React, and Framer Motion.
+          Choose an affordable plan that's packed with the best features for engaging your audience, creating customer loyalty, and driving sales.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
