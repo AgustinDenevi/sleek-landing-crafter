@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
-import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
+import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot, FaServer, FaDatabase, FaShieldAlt, FaCloud } from "react-icons/fa";
 
 const services = [
   {
@@ -24,6 +24,26 @@ const services = [
     title: "Start with AI",
     description: "Integrate AI to boost your business operations.",
     icon: <FaRobot size={32} />,
+  },
+  {
+    title: "Backend Development",
+    description: "Robust server-side solutions for your applications.",
+    icon: <FaServer size={32} />,
+  },
+  {
+    title: "Database Management",
+    description: "Efficient data storage and retrieval systems.",
+    icon: <FaDatabase size={32} />,
+  },
+  {
+    title: "Cybersecurity Services",
+    description: "Protect your digital assets with advanced security measures.",
+    icon: <FaShieldAlt size={32} />,
+  },
+  {
+    title: "Cloud Solutions",
+    description: "Scalable and flexible cloud infrastructure for your business.",
+    icon: <FaCloud size={32} />,
   },
 ];
 
@@ -74,14 +94,14 @@ const IconCloudSection = () => {
         Elegi el servicio que mas se ajuste a ti:
       </motion.h2>
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-black md:shadow-xl">
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((service, index) => (
+        <Marquee pauseOnHover className="[--duration:40s]">
+          {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+        <Marquee reverse pauseOnHover className="[--duration:40s]">
+          {services.map((service, index) => (
+            <ServiceCard key={`reverse-${index}`} {...service} />
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
