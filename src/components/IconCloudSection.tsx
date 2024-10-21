@@ -57,7 +57,7 @@ const StyledWrapper = styled.div`
   }
 
   .cards-container {
-    margin-top:-100px;
+    transform: translateY(-100px);
     display: flex; /* Alinea las tarjetas en fila */
     justify-content: center; /* Centra las tarjetas en el contenedor */
     flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en la siguiente línea si no hay suficiente espacio */

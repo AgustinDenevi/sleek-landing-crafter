@@ -85,6 +85,9 @@ const PCard = () => {
 };
 
 const StyledWrapper = styled.div`
+display: flex; 
+  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
+  align-items: center; /* Centra el contenido horizontalmente */
   .pcard {
   width: 300px;
   height: 200px;
