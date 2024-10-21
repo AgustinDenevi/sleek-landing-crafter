@@ -5,19 +5,15 @@ import TextReveal from "@/components/magicui/text-reveal";
 
 
 
-export function TextRevealDemo() {
-  return (
-    <div className="z-10 flex min-h-64 items-center justify-center rounded-lg border bg-white dark:bg-black">
-      <TextReveal text="Magic UI will change the way you design." />
-    </div>
-  );
-}
 
 
 const Card = () => {
   return (
     <StyledWrapper>
+       <div className="z-10 flex min-h-64 items-center justify-center rounded-lg border bg-white dark:bg-black">
       <TextReveal text="Magic UI will change the way you design." />
+    </div>
+     
       <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
