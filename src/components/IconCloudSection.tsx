@@ -85,7 +85,7 @@ const StyledWrapper = styled.div`
   }
 
   .icon {
-    font-size: 70px; /* Tamaño del ícono */
+    font-size: 35px; /* Tamaño del ícono */
     margin-top: 10px;
     margin-bottom: 10px; /* Espacio entre el ícono y el texto */
   }
