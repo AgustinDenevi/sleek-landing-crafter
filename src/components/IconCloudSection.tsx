@@ -11,10 +11,7 @@ const Card = () => {
   return (
     <StyledWrapper>
        
-      <TextReveal text="Magic UI will change the way you design." />
-    
-     
-      <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
+      <TextReveal text="Tailored Tech Solutions." />
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
