@@ -27,8 +27,8 @@ const services = [
   },
 ];
 
-const firstRow = services.slice(0, services.length / 2);
-const secondRow = services.slice(services.length / 2);
+const firstRow = [...services, ...services]; // Duplicar los elementos para el efecto infinito
+const secondRow = [...services, ...services];
 
 const ServiceCard = ({
   title,
@@ -64,7 +64,7 @@ const ServiceCard = ({
 
 const IconCloudSection = () => {
   return (
-<section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+    <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,24 +73,22 @@ const IconCloudSection = () => {
       >
         Elegi el servicio que más se ajuste a ti:
       </motion.h2>
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 "> 
+      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4">
+        {/* Primer Marquee con elementos duplicados para hacer infinito */}
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
+        {/* Segundo Marquee, en reversa, también duplicado */}
         <Marquee reverse pauseOnHover className="[--duration:20s]">
           {secondRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </Marquee>
-        
       </div>
     </section>
-
-
   );
 };
-
 
 export default IconCloudSection;
