@@ -54,7 +54,7 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     background-color: #1a1a1a;
-    border-radius: 20px; 
+    border-radius: 2px; 
     transition: all 0.2s;
     display: flex; /* Para centrar el contenido */
     flex-direction: column; /* Organiza el contenido en columna */
@@ -71,6 +71,7 @@ const StyledWrapper = styled.div`
 
   .card2:hover {
     transform: scale(0.98);
+    border-radius: 20px; 
   }
 
   .card:hover {
