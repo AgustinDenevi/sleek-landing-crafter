@@ -75,7 +75,7 @@ const StyledWrapper = styled.div`
     height: 254px;
     background-color: #1a1a1a;
     border-radius: 2px; 
-    transition: all 0.2s;
+    transition: all 0.5s;
     display: flex; /* Para centrar el contenido */
     flex-direction: column; /* Organiza el contenido en columna */
     align-items: center; /* Alinea los elementos horizontalmente */
@@ -85,7 +85,7 @@ const StyledWrapper = styled.div`
   }
 
   .icon {
-    font-size: 80px; /* Tamaño del ícono */
+    font-size: 70px; /* Tamaño del ícono */
     margin-top: 10px;
     margin-bottom: 10px; /* Espacio entre el ícono y el texto */
   }
