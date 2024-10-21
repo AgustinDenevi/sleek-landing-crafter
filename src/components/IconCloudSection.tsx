@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
-import React from "react";
 import styled from "styled-components";
 
 const Card = () => {
