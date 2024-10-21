@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
+import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa';
+import TextReveal from './magicui/text-reveal';
 
 const Card = () => {
   return (
     <StyledWrapper>
-      <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
-      <div className="cards-container"> {/* Contenedor para las tarjetas */}
+      <TextReveal text="Tailored Tech Solutions" className="title" />
+      <div className="cards-container">
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
