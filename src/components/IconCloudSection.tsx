@@ -3,7 +3,18 @@ import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa';
 import TextReveal from './magicui/text-reveal';
 import { cn } from "@/lib/utils";
-import Marquee from "@/components/magicui/marquee";
+
+// Simple Marquee component implementation
+const Marquee = ({ children, reverse = false, pauseOnHover = false, className = '' }) => {
+  return (
+    <div className={`flex overflow-hidden ${className}`}>
+      <div className={`flex min-w-full items-center justify-around ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'} ${pauseOnHover ? 'hover:[animation-play-state:paused]' : ''}`}>
+        {children}
+        {children} {/* Duplicate children for seamless loop */}
+      </div>
+    </div>
+  );
+};
 
 const services = [
   {
