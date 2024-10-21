@@ -76,9 +76,9 @@ const PCard = () => {
             </div>
             <span className="trail" />
           </div>
-          <span className="logo-bottom-text">uiverse.io</span>
+          <span className="logo-bottom-text">IsCoders S.A.</span>
         </div>
-        <span className="bottom-text">universe of ui</span>
+        <span className="bottom-text">software company</span>
       </div>
     </StyledWrapper>
   );
@@ -91,7 +91,7 @@ display: flex;
   .pcard {
   width: 300px;
   height: 200px;
-  background: #243137;
+  background: #262624;
   position: relative;
   display: grid;
   place-content: center;
@@ -105,20 +105,20 @@ display: flex;
 }
 
 #logo-main {
-  fill: #bd9f67;
+  fill: #B08EBF;
 }
 
 #logo-second {
   padding-bottom: 10px;
   fill: none;
-  stroke: #bd9f67;
+  stroke: #B08EBF;
   stroke-width: 1px;
 }
 
 .border {
   position: absolute;
   inset: 0px;
-  border: 2px solid #bd9f67;
+  border: 2px solid #B08EBF;
   opacity: 0;
   transform: rotate(10deg);
   transition: all 0.5s ease-in-out;
@@ -132,8 +132,8 @@ display: flex;
   font-size: 6px;
   text-transform: uppercase;
   padding: 0px 5px 0px 8px;
-  color: #bd9f67;
-  background: #243137;
+  color: #B08EBF;
+  background: #262624;
   opacity: 0;
   letter-spacing: 7px;
   transition: all 0.5s ease-in-out;
@@ -177,7 +177,7 @@ display: flex;
   top: 50%;
   transform: translate(-50%, -50%);
   margin-top: 30px;
-  color: #bd9f67;
+  color: #B08EBF;
   padding-left: 8px;
   font-size: 11px;
   opacity: 0;
