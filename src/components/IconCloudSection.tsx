@@ -64,31 +64,29 @@ const ServiceCard = ({
 
 const IconCloudSection = () => {
   return (
-   <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
-  <motion.h2
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="text-3xl font-bold text-center mb-12 text-white"
-  >
-    Elegi el servicio que más se ajuste a ti:
-  </motion.h2>
-
-  <div className="flex flex-col space-y-4">
-    {/* Ajusta el espacio entre columnas */}
-    <Marquee pauseOnHover className="[--duration:20s] flex space-x-1"> {/* Cambia a `space-x-1` o menos */}
-      {firstRow.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
-    </Marquee>
-
-    <Marquee reverse pauseOnHover className="[--duration:20s] flex space-x-1">
-      {secondRow.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
-    </Marquee>
-  </div>
-</section>
+<section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl font-bold text-center mb-12 text-white"
+      >
+        Elegi el servicio que más se ajuste a ti:
+      </motion.h2>
+      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4 "> 
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
+        </Marquee>
+        
+      </div>
+    </section>
 
 
   );
