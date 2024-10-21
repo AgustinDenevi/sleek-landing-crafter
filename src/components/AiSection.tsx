@@ -236,25 +236,26 @@ display: flex;
 
 @keyframes trail {
   0% {
-    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 90%, rgb(189, 159, 103) 100%);
+    background: linear-gradient(90deg, rgba(176, 142, 191, 0) 90%, #B08EBF 100%);
     opacity: 0;
   }
 
   30% {
-    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 70%, rgb(189, 159, 103) 100%);
+    background: linear-gradient(90deg, rgba(176, 142, 191, 0) 70%, #B08EBF 100%);
     opacity: 1;
   }
 
   70% {
-    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 70%, rgb(189, 159, 103) 100%);
+    background: linear-gradient(90deg, rgba(176, 142, 191, 0) 70%, #B08EBF 100%);
     opacity: 1;
   }
 
   95% {
-    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 90%, rgb(189, 159, 103) 100%);
+    background: linear-gradient(90deg, rgba(176, 142, 191, 0) 90%, #B08EBF 100%);
     opacity: 0;
   }
 }
+
 `;
 
 export default PCard;
