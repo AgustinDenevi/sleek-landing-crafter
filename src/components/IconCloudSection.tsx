@@ -73,7 +73,7 @@ const IconCloudSection = () => {
       >
         Elegi el servicio que más se ajuste a ti:
       </motion.h2>
-      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4 "> 
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 "> 
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((service, index) => (
             <ServiceCard key={index} {...service} />
