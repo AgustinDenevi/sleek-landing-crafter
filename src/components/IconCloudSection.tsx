@@ -71,8 +71,8 @@ const StyledWrapper = styled.div`
   }
 
   .card2 {
-    width: 190px;
-    height: 254px;
+    width: 191px;
+    height: 251px;
     background-color: #1a1a1a;
     border-radius: 20px; 
     transition: all 0.5s;
