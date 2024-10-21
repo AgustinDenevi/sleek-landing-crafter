@@ -222,17 +222,18 @@ display: flex;
   }
 
   10% {
-    border-right: 1px solid #bd9f67;
+    border-right: 1px solid #B08EBF;
   }
 
   80% {
-    border-right: 1px solid #bd9f67;
+    border-right: 1px solid #B08EBF;
   }
 
   100% {
     border-right: 1px solid transparent;
   }
 }
+
 
 @keyframes trail {
   0% {
