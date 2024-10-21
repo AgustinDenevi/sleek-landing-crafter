@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
+import TextReveal from "@/components/magicui/text-reveal"; // Importa el componente TextReveal
 
 const Card = () => {
   return (
     <StyledWrapper>
       <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
+      
+      {/* Componente TextReveal añadido aquí */}
+      <div className="text-reveal-container">
+        <TextReveal text="Transform your ideas into reality." />
+      </div>
+      
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
@@ -18,7 +25,6 @@ const Card = () => {
         </div>
         <div className="card">
           <div className="card2">
-            
             <h3>Get your</h3>
             <h2 className="service-title">Mobile App</h2>
             <div className="icon">
@@ -29,7 +35,6 @@ const Card = () => {
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
-            
             <h2 className="service-title">Web Site</h2>
             <div className="icon">
               <FaGlobe />
@@ -54,6 +59,10 @@ const StyledWrapper = styled.div`
     color: white; /* Color del texto del título */
   }
 
+  .text-reveal-container {
+    margin-bottom: 20px; /* Espacio debajo del TextReveal */
+  }
+
   .cards-container {
     display: flex; /* Alinea las tarjetas en fila */
     justify-content: center; /* Centra las tarjetas en el contenedor */
@@ -64,9 +73,7 @@ const StyledWrapper = styled.div`
     display: flex;
     width: 190px;
     height: 254px;
-   
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
-
     border-radius: 20px;
     transition: all 0.3s;
     margin: 20px; 
@@ -91,17 +98,20 @@ const StyledWrapper = styled.div`
     margin-top: 10px;
     margin-bottom: 10px; /* Espacio entre el ícono y el texto */
   }
+
   h3 {
     font-family: 'Poppins', sans-serif; /* Asegúrate de que h3 use Poppins */
     font-weight: 400; /* Peso normal para h3 */
     margin: 0; /* Elimina margen */
   }
+
   .service-title {
     font-family: 'Poppins', sans-serif; /* Asegúrate de que los h2 usen Poppins */
     font-weight: 600; /* Peso semi-negrita para el h2 */
     font-size: 1.2rem; /* Aumenta el tamaño del h2 */
     margin: 0; /* Elimina margen */
   }
+
   .card2:hover {
     transform: scale(0.98);
     border-radius: 20px; 
