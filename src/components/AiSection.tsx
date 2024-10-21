@@ -135,7 +135,7 @@ display: flex;
   color: #B08EBF;
   background: #262624;
   opacity: 0;
-  letter-spacing: 7px;
+  letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
 }
 
