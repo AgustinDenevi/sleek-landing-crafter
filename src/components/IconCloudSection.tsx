@@ -67,7 +67,7 @@ const StyledWrapper = styled.div`
    
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
 
-    border-radius: 16px;
+    border-radius: 20px;
     transition: all 0.3s;
     margin: 20px; 
   }
@@ -76,7 +76,7 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     background-color: #1a1a1a;
-    border-radius: 17px; 
+    border-radius: 16px; 
     transition: all 0.5s;
     display: flex; /* Para centrar el contenido */
     flex-direction: column; /* Organiza el contenido en columna */

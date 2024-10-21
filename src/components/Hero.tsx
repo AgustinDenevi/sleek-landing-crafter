@@ -48,7 +48,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-2 text-white"
         >
           <HyperText text="<IsCoders />" />
         </motion.h1>
@@ -56,7 +56,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-xl text-gray-300 mb-8"
+          className="text-xl text-gray-300 mb-6"
         >
           <i>The future is now, the future IsCoders.</i> 
         </motion.p>
@@ -65,11 +65,11 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <div className="flex items-center justify-center h-screen">
+          <div className="flex items-center justify-center mb-10">
             <div className="relative group">
               <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
                 <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
+                <span className="relative z-10 block px-4 py-2 rounded-xl bg-gray-950">
                   <div className="relative z-10 flex items-center space-x-2">
                     <span className="transition-all duration-500 group-hover:translate-x-1">
                       Let's get started
