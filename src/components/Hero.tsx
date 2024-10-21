@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import Particles from "./magicui/particles";
+import HyperText from "@/components/magicui/hyper-text";
 
 const Hero = () => {
   return (
@@ -20,12 +21,16 @@ const Hero = () => {
       <Particles
         className="absolute inset-0"
         quantity={100}
-        staticity={30} // Verificar si esta propiedad es necesaria
-        color="255,255,255" // Asegúrate de que este formato sea correcto
+        staticity={30}
+        color="255,255,255"
         ease={50}
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-        <div className="text-white text-xl font-bold"><strong>Is</strong>Coders</div>
+        <div className="text-white text-xl font-bold">
+          <span className="text-4xl font-bold text-white">
+            <HyperText text="<IsCoders />" /> {/* Sin className */}
+          </span>
+        </div>
         <div>
           <Button variant="ghost" className="text-white mr-2" aria-label="Log in">Log in</Button>
           <Button variant="outline" className="text-white" aria-label="Sign up">Sign up</Button>
@@ -48,7 +53,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
         >
-          <strong>Is</strong>Coders
+          <HyperText text="<IsCoders />" /> {/* Sin className */}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
