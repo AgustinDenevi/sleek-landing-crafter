@@ -13,7 +13,7 @@ const Card = () => {
               <FaCode />
             </div>
             <h3>Get your</h3>
-            <h2>Custom Software</h2>
+            <h2 className="service-title">Custom Software</h2>
           </div>
         </div>
         <div className="card">
@@ -22,7 +22,7 @@ const Card = () => {
               <FaMobileAlt />
             </div>
             <h3>Get your</h3>
-            <h2>Mobile App</h2>
+            <h2 className="service-title">Mobile App</h2>
           </div>
         </div>
         <div className="card">
@@ -31,7 +31,7 @@ const Card = () => {
               <FaGlobe />
             </div>
             <h3>Get your</h3>
-            <h2>Web Site</h2>
+            <h2 className="service-title">Web Site</h2>
           </div>
         </div>
       </div>
@@ -45,7 +45,9 @@ const StyledWrapper = styled.div`
   align-items: center; /* Centra el contenido horizontalmente */
 
   .title {
-    font-size: 24px; /* Tamaño del título */
+    font-family: 'Poppins', sans-serif; /* Cambiar a la fuente elegida */
+    font-weight: 700; /* Negrita */
+    font-size: 30px; /* Tamaño del título */
     margin-bottom: 20px; /* Espacio debajo del título */
     color: white; /* Color del texto del título */
   }
@@ -84,7 +86,17 @@ const StyledWrapper = styled.div`
     font-size: 40px; /* Tamaño del ícono */
     margin-bottom: 10px; /* Espacio entre el ícono y el texto */
   }
-
+  h3 {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de que h3 use Poppins */
+    font-weight: 400; /* Peso normal para h3 */
+    margin: 0; /* Elimina margen */
+  }
+  .service-title {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de que los h2 usen Poppins */
+    font-weight: 600; /* Peso semi-negrita para el h2 */
+    font-size: 1.2rem; /* Aumenta el tamaño del h2 */
+    margin: 0; /* Elimina margen */
+  }
   .card2:hover {
     transform: scale(0.98);
     border-radius: 20px; 
