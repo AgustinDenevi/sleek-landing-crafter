@@ -7,6 +7,9 @@ const Card = () => {
       <div className="card">
         <div className="card2"></div>
       </div>
+      <div className="card">
+        <div className="card2"></div>
+      </div>
     </StyledWrapper>
   );
 };
