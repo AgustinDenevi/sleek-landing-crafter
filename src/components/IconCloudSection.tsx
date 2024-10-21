@@ -64,7 +64,7 @@ const ServiceCard = ({
 
 const IconCloudSection = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+   <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -75,20 +75,21 @@ const IconCloudSection = () => {
   </motion.h2>
 
   <div className="flex flex-col space-y-4">
-    <Marquee pauseOnHover className="[--duration:20s] flex space-x-2"> {/* Reduce el `space-x` */}
-  {firstRow.map((service, index) => (
-    <ServiceCard key={index} {...service} />
-  ))}
-</Marquee>
+    {/* Ajusta el espacio entre columnas */}
+    <Marquee pauseOnHover className="[--duration:20s] flex space-x-1"> {/* Cambia a `space-x-1` o menos */}
+      {firstRow.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
+    </Marquee>
 
-<Marquee reverse pauseOnHover className="[--duration:20s] flex space-x-2">
-  {secondRow.map((service, index) => (
-    <ServiceCard key={index} {...service} />
-  ))}
-</Marquee>
-
+    <Marquee reverse pauseOnHover className="[--duration:20s] flex space-x-1">
+      {secondRow.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
+    </Marquee>
   </div>
 </section>
+
 
   );
 };
