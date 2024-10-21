@@ -202,14 +202,14 @@ display: flex;
 }
 
 .pcard:hover .bottom-text {
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   opacity: 1;
   transform: translateX(-50%);
 }
 
 .pcard:hover .content .logo-bottom-text {
   opacity: 1;
-  letter-spacing: 9.5px;
+  letter-spacing: 3px;
 }
 
 .pcard:hover .trail {
