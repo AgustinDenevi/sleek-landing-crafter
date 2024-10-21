@@ -64,7 +64,7 @@ const StyledWrapper = styled.div`
     display: flex;
     width: 190px;
     height: 254px;
-    background-image: linear-gradient(163deg, ##747AFA 0%, #202BFA 100%);
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
     border-radius: 19px;
     transition: all 0.3s;
     margin: 20px; 
