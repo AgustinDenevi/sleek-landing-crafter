@@ -18,20 +18,22 @@ const Card = () => {
         </div>
         <div className="card">
           <div className="card2">
+            
+            <h3>Get your</h3>
+            <h2 className="service-title">Mobile App</h2>
             <div className="icon">
               <FaMobileAlt />
             </div>
-            <h3>Get your</h3>
-            <h2 className="service-title">Mobile App</h2>
           </div>
         </div>
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
+            
+            <h2 className="service-title">Web Site</h2>
             <div className="icon">
               <FaGlobe />
             </div>
-            <h2 className="service-title">Web Site</h2>
           </div>
         </div>
       </div>
