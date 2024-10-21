@@ -9,11 +9,11 @@ const Card = () => {
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
+            <h3>Get your</h3>
+            <h2 className="service-title">Custom Software</h2>
             <div className="icon">
               <FaCode />
             </div>
-            <h3>Get your</h3>
-            <h2 className="service-title">Custom Software</h2>
           </div>
         </div>
         <div className="card">
@@ -27,10 +27,10 @@ const Card = () => {
         </div>
         <div className="card">
           <div className="card2">
+            <h3>Get your</h3>
             <div className="icon">
               <FaGlobe />
             </div>
-            <h3>Get your</h3>
             <h2 className="service-title">Web Site</h2>
           </div>
         </div>
