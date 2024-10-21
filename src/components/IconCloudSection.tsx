@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
-
+import TextReveal from "@/components/magicui/text-reveal"; // Asegúrate de que este import esté correcto
 const Card = () => {
   return (
     <StyledWrapper>
-      <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
+      <TextReveal text="Tailored Tech Solutions"  /> {/* Título modificado */}
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
-            <h2 className="service-title">Custom Software</h2>
+            <TextReveal text="Custom Software"  /> {/* Título de servicio modificado */}
             <div className="icon">
               <FaCode />
             </div>
@@ -18,9 +18,8 @@ const Card = () => {
         </div>
         <div className="card">
           <div className="card2">
-            
             <h3>Get your</h3>
-            <h2 className="service-title">Mobile App</h2>
+            <TextReveal text="Mobile App"  /> {/* Título de servicio modificado */}
             <div className="icon">
               <FaMobileAlt />
             </div>
@@ -29,8 +28,7 @@ const Card = () => {
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
-            
-            <h2 className="service-title">Web Site</h2>
+            <TextReveal text="Web Site"  /> {/* Título de servicio modificado */}
             <div className="icon">
               <FaGlobe />
             </div>
@@ -40,6 +38,7 @@ const Card = () => {
     </StyledWrapper>
   );
 };
+
 
 const StyledWrapper = styled.div`
   display: flex; 
