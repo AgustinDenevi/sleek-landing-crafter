@@ -5,31 +5,34 @@ import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa ícono
 const Card = () => {
   return (
     <StyledWrapper>
-      <div className="card">
-        <div className="card2">
-          <div className="icon">
-            <FaCode />
+      <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
+      <div className="cards-container"> {/* Contenedor para las tarjetas */}
+        <div className="card">
+          <div className="card2">
+            <div className="icon">
+              <FaCode />
+            </div>
+            <h3>Get your</h3>
+            <h2>Custom Software</h2>
           </div>
-          <h3>Get your</h3>
-          <h2>Custom Software</h2>
         </div>
-      </div>
-      <div className="card">
-        <div className="card2">
-          <div className="icon">
-            <FaMobileAlt />
+        <div className="card">
+          <div className="card2">
+            <div className="icon">
+              <FaMobileAlt />
+            </div>
+            <h3>Get your</h3>
+            <h2>Mobile App</h2>
           </div>
-          <h3>Get your</h3>
-          <h2>Mobile App</h2>
         </div>
-      </div>
-      <div className="card">
-        <div className="card2">
-          <div className="icon">
-            <FaGlobe />
+        <div className="card">
+          <div className="card2">
+            <div className="icon">
+              <FaGlobe />
+            </div>
+            <h3>Get your</h3>
+            <h2>Web Site</h2>
           </div>
-          <h3>Get your</h3>
-          <h2>Web Site</h2>
         </div>
       </div>
     </StyledWrapper>
@@ -38,7 +41,20 @@ const Card = () => {
 
 const StyledWrapper = styled.div`
   display: flex; 
-  justify-content: center;
+  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
+  align-items: center; /* Centra el contenido horizontalmente */
+
+  .title {
+    font-size: 24px; /* Tamaño del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: white; /* Color del texto del título */
+  }
+
+  .cards-container {
+    display: flex; /* Alinea las tarjetas en fila */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en la siguiente línea si no hay suficiente espacio */
+  }
 
   .card {
     display: flex;
