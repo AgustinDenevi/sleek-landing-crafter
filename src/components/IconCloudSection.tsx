@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
 
-
-
-
-
 const Card = () => {
   return (
     <StyledWrapper>
