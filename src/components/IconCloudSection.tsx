@@ -4,91 +4,100 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import { FaLaptopCode, FaGlobe, FaMobileAlt, FaRobot } from "react-icons/fa";
 
-const services = [
+const reviews = [
   {
-    title: "Get a Custom Software",
-    description: "Tailored software solutions for your business.",
-    icon: <FaLaptopCode size={32} />,
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
   },
   {
-    title: "Get your WebSite",
-    description: "Modern and responsive website design.",
-    icon: <FaGlobe size={32} />,
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
   },
   {
-    title: "Get your own App",
-    description: "Mobile app development for iOS and Android.",
-    icon: <FaMobileAlt size={32} />,
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
   },
   {
-    title: "Start with AI",
-    description: "Integrate AI to boost your business operations.",
-    icon: <FaRobot size={32} />,
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
   },
 ];
 
-const firstRow = [...services, ...services]; // Duplicar los elementos para el efecto infinito
-const secondRow = [...services, ...services];
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
 
-const ServiceCard = ({
-  title,
-  description,
-  icon,
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
 }: {
-  title: string;
-  description: string;
-  icon: JSX.Element;
+  img: string;
+  name: string;
+  username: string;
+  body: string;
 }) => {
   return (
     <figure
       className={cn(
         "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        {icon}
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
-            {title}
+            {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">
-            {description}
-          </p>
+          <p className="text-xs font-medium dark:text-white/40">{username}</p>
         </div>
       </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
     </figure>
   );
 };
 
-const IconCloudSection = () => {
+export function IconCloudSection() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl font-bold text-center mb-12 text-white"
-      >
-        Elegi el servicio que más se ajuste a ti:
-      </motion.h2>
-      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4">
-        {/* Primer Marquee con elementos duplicados para hacer infinito */}
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
-        </Marquee>
-        {/* Segundo Marquee, en reversa, también duplicado */}
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
-        </Marquee>
-      </div>
-    </section>
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
   );
-};
+}
 
 export default IconCloudSection;
