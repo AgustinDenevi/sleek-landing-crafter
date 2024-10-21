@@ -8,7 +8,7 @@ export interface HyperTextProps extends HTMLMotionProps<"div"> {
 
 export default function HyperText({
   text,
-  className,
+ 
   ...props
 }: HyperTextProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,7 +42,7 @@ export default function HyperText({
     <motion.div
       className={cn(
         "relative w-fit font-mono text-white",
-        className
+        
       )}
       onMouseEnter={() => {
         setIsHovered(true);

@@ -1,18 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
-import TextReveal from "@/components/magicui/text-reveal"; // Importa el componente TextReveal
 
 const Card = () => {
   return (
     <StyledWrapper>
       <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
-      
-      {/* Componente TextReveal añadido aquí */}
-      <div className="text-reveal-container">
-        <TextReveal text="Transform your ideas into reality." />
-      </div>
-      
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
@@ -25,6 +18,7 @@ const Card = () => {
         </div>
         <div className="card">
           <div className="card2">
+            
             <h3>Get your</h3>
             <h2 className="service-title">Mobile App</h2>
             <div className="icon">
@@ -35,6 +29,7 @@ const Card = () => {
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
+            
             <h2 className="service-title">Web Site</h2>
             <div className="icon">
               <FaGlobe />
@@ -57,10 +52,6 @@ const StyledWrapper = styled.div`
     font-size: 30px; /* Tamaño del título */
     margin-bottom: 20px; /* Espacio debajo del título */
     color: white; /* Color del texto del título */
-  }
-
-  .text-reveal-container {
-    margin-bottom: 20px; /* Espacio debajo del TextReveal */
   }
 
   .cards-container {
@@ -98,7 +89,7 @@ const StyledWrapper = styled.div`
     margin-top: 10px;
     margin-bottom: 10px; /* Espacio entre el ícono y el texto */
   }
-
+  
   h3 {
     font-family: 'Poppins', sans-serif; /* Asegúrate de que h3 use Poppins */
     font-weight: 400; /* Peso normal para h3 */
