@@ -40,8 +40,4 @@ const StyledWrapper = styled.div`
  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
 }
 `;
-
-export default Card;
-
-
 export default IconCloudSection;
