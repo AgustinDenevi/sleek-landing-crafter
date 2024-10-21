@@ -85,7 +85,7 @@ const PCard = () => {
 };
 
 const StyledWrapper = styled.div`
-  .card {
+  .pcard {
   width: 300px;
   height: 200px;
   background: #243137;
@@ -182,34 +182,34 @@ const StyledWrapper = styled.div`
   transition: all 0.5s ease-in-out 0.5s;
 }
 
-.card:hover {
+.pcard:hover {
   border-radius: 0;
   transform: scale(1.1);
 }
 
-.card:hover .logo {
+.pcard:hover .logo {
   width: 134px;
   animation: opacity 1s ease-in-out;
 }
 
-.card:hover .border {
+.pcard:hover .border {
   inset: 15px;
   opacity: 1;
   transform: rotate(0);
 }
 
-.card:hover .bottom-text {
+.pcard:hover .bottom-text {
   letter-spacing: 3px;
   opacity: 1;
   transform: translateX(-50%);
 }
 
-.card:hover .content .logo-bottom-text {
+.pcard:hover .content .logo-bottom-text {
   opacity: 1;
   letter-spacing: 9.5px;
 }
 
-.card:hover .trail {
+.pcard:hover .trail {
   animation: trail 1s ease-in-out;
 }
 
