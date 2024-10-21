@@ -67,7 +67,7 @@ const StyledWrapper = styled.div`
    
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
 
-    border-radius: 19px;
+    border-radius: 18px;
     transition: all 0.3s;
     margin: 20px; 
   }
