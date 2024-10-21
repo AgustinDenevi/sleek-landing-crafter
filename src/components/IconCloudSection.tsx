@@ -75,17 +75,18 @@ const IconCloudSection = () => {
   </motion.h2>
 
   <div className="flex flex-col space-y-4">
-    <Marquee pauseOnHover className="[--duration:20s]">
-      {firstRow.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
-    </Marquee>
+    <Marquee pauseOnHover className="[--duration:20s] flex space-x-2"> {/* Reduce el `space-x` */}
+  {firstRow.map((service, index) => (
+    <ServiceCard key={index} {...service} />
+  ))}
+</Marquee>
 
-    <Marquee reverse pauseOnHover className="[--duration:20s]">
-      {secondRow.map((service, index) => (
-        <ServiceCard key={index} {...service} />
-      ))}
-    </Marquee>
+<Marquee reverse pauseOnHover className="[--duration:20s] flex space-x-2">
+  {secondRow.map((service, index) => (
+    <ServiceCard key={index} {...service} />
+  ))}
+</Marquee>
+
   </div>
 </section>
 
