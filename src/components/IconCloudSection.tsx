@@ -65,14 +65,14 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 20px;
+    border-radius: 19px;
     transition: all 0.3s;
     margin: 20px; 
   }
 
   .card2 {
-    width: 191px;
-    height: 251px;
+    width: 190px;
+    height: 250px;
     background-color: #1a1a1a;
     border-radius: 20px; 
     transition: all 0.5s;
