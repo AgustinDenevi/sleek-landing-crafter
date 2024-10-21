@@ -19,7 +19,7 @@ const StyledText = styled.div`
   .char {
     opacity: 0;
     transform: translateY(20px);
-    animation: reveal 0.5s forwards;
+    animation: reveal 2s forwards;
   }
   
   @keyframes reveal {
