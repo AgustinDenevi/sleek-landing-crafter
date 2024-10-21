@@ -10,35 +10,42 @@ const Card = () => {
       <div className="card">
         <div className="card2"></div>
       </div>
+      <div className="card">
+        <div className="card2"></div>
+      </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
+  display: flex; /* Agregar display: flex para alinear las tarjetas horizontalmente */
+
   .card {
+    display: flex;
     width: 190px;
     height: 254px;
     background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
     border-radius: 20px;
-    transition: all .3s;
+    transition: all 0.3s;
+    margin-right: 20px; /* Espacio entre tarjetas, opcional */
   }
 
   .card2 {
     width: 190px;
     height: 254px;
     background-color: #1a1a1a;
-    border-radius: 20px; /* Asegúrate de tener un valor aquí */
-    transition: all .2s;
+    border-radius: 20px; /* Mantener el mismo border-radius */
+    transition: all 0.2s;
   }
 
   .card2:hover {
     transform: scale(0.98);
-    border-radius: 20px; /* Esto también es opcional, ya que ya está definido en .card2 */
+    /* border-radius: 20px; Esto es opcional */
   }
 
   .card:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
   }
 `;
 
-export default Card; // Cambia IconCloudSection por Card
+export default Card;
