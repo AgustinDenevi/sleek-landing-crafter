@@ -19,6 +19,7 @@ const Card = () => {
 
 const StyledWrapper = styled.div`
   display: flex; /* Agregar display: flex para alinear las tarjetas horizontalmente */
+  justify-content:center;
 
   .card {
     display: flex;
@@ -27,14 +28,14 @@ const StyledWrapper = styled.div`
     background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
     border-radius: 20px;
     transition: all 0.3s;
-    margin-right: 20px; /* Espacio entre tarjetas, opcional */
+    margin: 10px; /* Espacio entre tarjetas, opcional */
   }
 
   .card2 {
     width: 190px;
     height: 254px;
     background-color: #1a1a1a;
-    border-radius: 20px; /* Mantener el mismo border-radius */
+    border-radius: 2px; /* Mantener el mismo border-radius */
     transition: all 0.2s;
   }
 
