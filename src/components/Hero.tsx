@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from './ui/button';
 import Particles from "./magicui/particles";
 import HyperText from "@/components/magicui/hyper-text";
 
@@ -27,13 +26,11 @@ const Hero = () => {
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
         <div className="text-white text-xl font-bold">
-          <span className="text-4xl font-bold text-white">
-            <HyperText text="<IsCoders />" /> {/* Sin className */}
-          </span>
+          <HyperText text="<IsCoders />" />
         </div>
         <div>
-          <Button variant="ghost" className="text-white mr-2" aria-label="Log in">Log in</Button>
-          <Button variant="outline" className="text-white" aria-label="Sign up">Sign up</Button>
+          <button className="text-white mr-2">Log in</button>
+          <button className="text-white">Sign up</button>
         </div>
       </nav>
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -53,7 +50,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
         >
-          <HyperText text="<IsCoders />" /> {/* Sin className */}
+          <HyperText text="<IsCoders />" />
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -68,9 +65,34 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <Button size="lg" className="text-lg px-6 py-3">
-            Get Started Now →
-          </Button>
+          <div className="flex items-center justify-center h-screen">
+            <div className="relative group">
+              <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+                <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
+                  <div className="relative z-10 flex items-center space-x-2">
+                    <span className="transition-all duration-500 group-hover:translate-x-1">
+                      Let's get started
+                    </span>
+                    <svg
+                      className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
+                      data-slot="icon"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </span>
+              </button>
+            </div>
+          </div>
         </motion.div>
       </div>
     </motion.section>
