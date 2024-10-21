@@ -65,7 +65,7 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
    
-    background-image: linear-gradient(90deg, #202BFA 0%, #747AFA 100%);
+    background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
 
     border-radius: 19px;
     transition: all 0.3s;
@@ -108,7 +108,7 @@ const StyledWrapper = styled.div`
   }
 
   .card:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+    box-shadow: 0px 0px 30px 1px rgba(32, 43, 250, 0.3);
   }
 `;
 
