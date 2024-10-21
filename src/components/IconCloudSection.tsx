@@ -1,102 +1,115 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Particles from "./magicui/particles";
-import HyperText from "@/components/magicui/hyper-text";
+import styled from 'styled-components';
+import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 
-const Hero = () => {
+const Card = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black"
-    >
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
-        }}
-      />
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        staticity={30}
-        color="255,255,255"
-        ease={50}
-      />
-      <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-        <div className="text-white text-xl font-bold">
-          <HyperText text="<IsCoders />" />
-        </div>
-        <div>
-          <button className="text-white mr-2">Log in</button>
-          <button className="text-white">Sign up</button>
-        </div>
-      </nav>
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-4"
-        >
-          <span className="px-3 py-1 text-sm font-semibold bg-gray-800 text-gray-300 rounded-full">
-            + Software Consultant
-          </span>
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 text-white"
-        >
-          <HyperText text="<IsCoders />" />
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-xl text-gray-300 mb-8"
-        >
-          <i>The future is now, the future IsCoders.</i> 
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          <div className="flex items-center justify-center h-screen">
-            <div className="relative group">
-              <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-                <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
-                  <div className="relative z-10 flex items-center space-x-2">
-                    <span className="transition-all duration-500 group-hover:translate-x-1">
-                      Let's get started
-                    </span>
-                    <svg
-                      className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
-                      data-slot="icon"
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </span>
-              </button>
+    <StyledWrapper>
+      <h2 className="title">Tailored Tech Solutions</h2> {/* Título agregado */}
+      <div className="cards-container"> {/* Contenedor para las tarjetas */}
+        <div className="card">
+          <div className="card2">
+            <h3>Get your</h3>
+            <h2 className="service-title">Custom Software</h2>
+            <div className="icon">
+              <FaCode />
             </div>
           </div>
-        </motion.div>
+        </div>
+        <div className="card">
+          <div className="card2">
+            
+            <h3>Get your</h3>
+            <h2 className="service-title">Mobile App</h2>
+            <div className="icon">
+              <FaMobileAlt />
+            </div>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card2">
+            <h3>Get your</h3>
+            
+            <h2 className="service-title">Web Site</h2>
+            <div className="icon">
+              <FaGlobe />
+            </div>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </StyledWrapper>
   );
 };
 
-export default Hero;
+const StyledWrapper = styled.div`
+  display: flex; 
+  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
+  align-items: center; /* Centra el contenido horizontalmente */
+
+  .title {
+    font-family: 'Poppins', sans-serif; /* Cambiar a la fuente elegida */
+    font-weight: 700; /* Negrita */
+    font-size: 30px; /* Tamaño del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: white; /* Color del texto del título */
+  }
+
+  .cards-container {
+    display: flex; /* Alinea las tarjetas en fila */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en la siguiente línea si no hay suficiente espacio */
+  }
+
+  .card {
+    display: flex;
+    width: 190px;
+    height: 254px;
+   
+    background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
+
+    border-radius: 16px;
+    transition: all 0.3s;
+    margin: 20px; 
+  }
+
+  .card2 {
+    width: 190px;
+    height: 254px;
+    background-color: #1a1a1a;
+    border-radius: 17px; 
+    transition: all 0.5s;
+    display: flex; /* Para centrar el contenido */
+    flex-direction: column; /* Organiza el contenido en columna */
+    align-items: center; /* Alinea los elementos horizontalmente */
+    justify-content: center; /* Alinea los elementos verticalmente */
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center; /* Centra el texto */
+  }
+
+  .icon {
+    font-size: 35px; /* Tamaño del ícono */
+    margin-top: 10px;
+    margin-bottom: 10px; /* Espacio entre el ícono y el texto */
+  }
+  h3 {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de que h3 use Poppins */
+    font-weight: 400; /* Peso normal para h3 */
+    margin: 0; /* Elimina margen */
+  }
+  .service-title {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de que los h2 usen Poppins */
+    font-weight: 600; /* Peso semi-negrita para el h2 */
+    font-size: 1.2rem; /* Aumenta el tamaño del h2 */
+    margin: 0; /* Elimina margen */
+  }
+  .card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px; 
+  }
+
+  .card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(32, 43, 250, 0.3);
+  }
+`;
+
+export default Card;
