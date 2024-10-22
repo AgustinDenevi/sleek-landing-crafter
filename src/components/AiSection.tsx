@@ -5,9 +5,9 @@ import HyperText from "@/components/magicui/hyper-text";
 
 const PCard = () => {
   return (
-    <StyledWrapper>
+    <StyledWrapper >
 
-    <HyperText text="The future is AI." style={{color:'#F0F0F0', fontSize: '55px', margin:'40px', fontWeight:'1000' }} />
+    <HyperText text="The Future is AI." style={{color:'#F0F0F0', fontSize: '45px', margin:'60px', fontWeight:'600',fontFamily: 'Poppins',}} />
 
 
       <div className="pcard">

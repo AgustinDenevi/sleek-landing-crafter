@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Particles from "./magicui/particles";
 import HyperText from "@/components/magicui/hyper-text";
-
+import TextReveal from "@/components/magicui/text-reveal";
 const Hero = () => {
   return (
     <motion.section
@@ -33,7 +33,7 @@ const Hero = () => {
           <button className="text-white">Sign up</button>
         </div>
       </nav>
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,10 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+      
+     
     </motion.section>
+    
   );
 };
 

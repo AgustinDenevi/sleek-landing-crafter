@@ -62,7 +62,7 @@ interface TextRevealByWordProps {
         <span className={"absolute opacity-30"}>{children}</span>
         <motion.span
           style={{ opacity: opacity }}
-          className={"text-white dark:text-white"}
+          className={"text-white dark:text-white "}
         >
           {children}
         </motion.span>
