@@ -38,7 +38,7 @@ const Hero = () => {
 
 
 
-      <div className="relative  max-w-4xl mx-auto mt-[300px]" >
+      <div className="relative  max-w-4xl mx-auto mt-[100px]" >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,9 +101,7 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      <div className={"sticky top-[10px]  mb-[50px] flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
-            <TextReveal text="Tailored Tech Solutions."/>
-      </div>
+      
     </motion.section>
     
   );
