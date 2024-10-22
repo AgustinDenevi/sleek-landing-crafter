@@ -5,7 +5,7 @@ import TextReveal from "@/components/magicui/text-reveal";
 
 const Card = () => {
   return (
-    <StyledWrapper style={{ marginTop: '-1100px' }}>
+    <StyledWrapper className="mt-[-2000px] sm:mt-[-1150px]">
        <div className={"sticky top-[10px]  mb-[50px] flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
             <TextReveal text="Tailored Tech Solutions."  />
        </div>

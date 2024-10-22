@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Particles from "./magicui/particles";
 import HyperText from "@/components/magicui/hyper-text";
-import TextReveal from "@/components/magicui/text-reveal";
+
 const Hero = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black z-10"
     >
       <div 
         className="absolute inset-0 w-full h-full"
@@ -48,7 +48,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-2 text-white"
+          className="text-6xl sm:text-7xl z-10 md:text-8xl font-bold mb-2 text-white"
         >
           <HyperText text="<IsCoders />" />
         </motion.h1>
@@ -65,7 +65,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <div className="flex items-center justify-center mb-10">
+          <div className="flex items-center justify-center mb-10 z-10">
             <div className="relative group">
               <button className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
                 <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
