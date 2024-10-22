@@ -10,7 +10,7 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black z-10"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4  bg-black z-10"
     >
       <div 
         className="absolute inset-0 w-full h-full"
@@ -38,7 +38,7 @@ const Hero = () => {
 
 
 
-      <div className="relative  max-w-4xl mx-auto" >
+      <div className="relative  max-w-4xl mx-auto mt-[300px]" >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,9 @@ const Hero = () => {
         </motion.div>
       </div>
       
-     
+      <div className={"sticky top-[10px]  mb-[50px] flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <TextReveal text="Tailored Tech Solutions."/>
+      </div>
     </motion.section>
     
   );
