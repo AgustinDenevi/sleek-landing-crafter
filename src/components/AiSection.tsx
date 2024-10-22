@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import myImage from "../../public/aiscoderslogouno.png"
+import HyperText from "@/components/magicui/hyper-text";
 
 
 const PCard = () => {
   return (
     <StyledWrapper>
+
+    <HyperText text="The future is AI." style={{color:'#F0F0F0', fontSize: '55px', margin:'40px', fontWeight:'1000' }} />
+
+
       <div className="pcard">
         <div className="border" />
         <div className="content">
