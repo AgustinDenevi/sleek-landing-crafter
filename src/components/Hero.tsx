@@ -9,7 +9,7 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black z-10"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black "
     >
       <div 
         className="absolute inset-0 w-full h-full"
@@ -33,7 +33,7 @@ const Hero = () => {
           <button className="text-white">Sign up</button>
         </div>
       </nav>
-      <div className="relative z-10 max-w-4xl mx-auto ">
+      <div className="relative z-10 max-w-4xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
