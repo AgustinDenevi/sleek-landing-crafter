@@ -6,8 +6,10 @@ import TextReveal from "@/components/magicui/text-reveal";
 const Card = () => {
   return (
     <StyledWrapper>
-       
-      <TextReveal text="Tailored Tech Solutions." />
+       <div className={"sticky top-[10px]  mb-[50px] flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem]"}>
+            <TextReveal text="Tailored Tech Solutions." />
+       </div>
+      
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
           <div className="card2">
@@ -57,7 +59,7 @@ const StyledWrapper = styled.div`
   }
 
   .cards-container {
-    transform: translateY(-100px);
+    z-index:3;
     display: flex; /* Alinea las tarjetas en fila */
     justify-content: center; /* Centra las tarjetas en el contenedor */
     flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en la siguiente línea si no hay suficiente espacio */
@@ -70,7 +72,7 @@ const StyledWrapper = styled.div`
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
     border-radius: 20px;
     transition: all 0.3s;
-    margin: 20px; 
+    margin: 50px; 
   }
 
   .card2 {
