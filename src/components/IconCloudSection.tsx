@@ -65,8 +65,8 @@ const StyledWrapper = styled.div`
 
   .card {
     display: flex;
-    width: 200px;
-    height: 260px;
+    width: 250px;
+    height: 310px;
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
     border-radius: 20px;
     transition: all 0.3s;
@@ -74,8 +74,8 @@ const StyledWrapper = styled.div`
   }
 
   .card2 {
-    width: 200px;
-    height: 260px;
+    width: 250px;
+    height: 310px;
     background-color: #1a1a1a;
     border-radius: 16px; 
     transition: all 0.5s;
