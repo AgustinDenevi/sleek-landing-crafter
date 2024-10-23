@@ -10,7 +10,7 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-black z-10"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4  bg-black z-10"
     >
       <div 
         className="absolute inset-0 w-full h-full"
@@ -25,7 +25,7 @@ const Hero = () => {
         color="255,255,255"
         ease={50}
       />
-      <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
+      <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center ">
         <div className="text-white text-xl font-bold">
           <HyperText text="<IsCoders />" />
         </div>
@@ -35,14 +35,17 @@ const Hero = () => {
         </div>
       </nav>
 
-      <div className="relative max-w-4xl mx-auto mt-[100px]" >
+
+
+
+      <div className="relative  max-w-4xl mx-auto mt-[100px]" >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-4"
+          className="mb-4 "
         >
-          <span className="px-3 py-1 text-sm font-semibold bg-gray-800 text-gray-300 rounded-full">
+          <span className="px-3 py-1 text-sm font-semibold bg-gray-800 text-gray-300 rounded-full ">
             + Software Consultant
           </span>
         </motion.div>
@@ -50,7 +53,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2 text-white"
+          className="text-6xl sm:text-7xl z-10 md:text-8xl font-bold mb-2 text-white "
         >
           <HyperText text="<IsCoders />" />
         </motion.h1>
@@ -58,7 +61,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-lg sm:text-xl text-gray-300 mb-6 z-10"
+          className="text-xl text-gray-300 mb-6 z-10"
         >
           <i>The future is now, the future IsCoders.</i> 
         </motion.p>
@@ -97,7 +100,10 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+      
+      
     </motion.section>
+    
   );
 };
 
