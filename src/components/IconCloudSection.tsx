@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
-import TextReveal from "@/components/magicui/text-reveal";
+import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa';
+import TextReveal from './magicui/text-reveal';
 
 const Card = () => {
   return (
-    <StyledWrapper >  
-      <div className={"sticky top-[50px] mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem] mb-[120px]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
-            <TextReveal text="Tailored Tech Solutions."/>
-      </div>    
-      <div className="cards-container"> {/* Contenedor para las tarjetas */}
+    <StyledWrapper>
+      <div className="sticky top-0 z-50 bg-black py-8">
+        <TextReveal text="Tailored Tech Solutions" className="title" />
+      </div>
+      <div className="cards-container">
         <div className="card">
           <div className="card2">
             <h3>Get your</h3>
@@ -46,15 +46,17 @@ const Card = () => {
 
 const StyledWrapper = styled.div`
   display: flex; 
-  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
-  align-items: center; /* Centra el contenido horizontalmente */
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 2rem;
 
   .title {
-    font-family: 'Poppins', sans-serif; /* Cambiar a la fuente elegida */
-    font-weight: 700; /* Negrita */
-    font-size: 30px; /* Tamaño del título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-    color: white; /* Color del texto del título */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 20px;
+    color: white;
   }
 
   .cards-container {
