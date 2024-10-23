@@ -22,7 +22,7 @@ const Button = () => {
               <div className="paper" />
             </div>
           </div>
-          Continuar Aplicación
+          Make an appointment 
         </button>
       </div>
     </StyledWrapper>
