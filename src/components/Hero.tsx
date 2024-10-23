@@ -10,14 +10,17 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-black z-10"
+      className="relative min-h-[80vh] sm:min-h-screen w-full flex flex-col justify-center items-center text-center px-4 bg-black z-10"
     >
       <div 
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full min-h-[150vh]"
         style={{
           background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
         }}
       />
+      <div className="absolute inset-0 w-full h-full">
+        {/* Aquí iría tu componente de partículas */}
+      </div>
       <Particles
         className="absolute inset-0"
         quantity={100}
@@ -35,7 +38,7 @@ const Hero = () => {
         </div>
       </nav>
 
-      <div className="relative max-w-4xl mx-auto mt-[100px]">
+      <div className="relative max-w-4xl mx-auto mt-[150px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
