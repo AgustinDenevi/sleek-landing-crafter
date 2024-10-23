@@ -7,7 +7,7 @@ const PCard = () => {
   return (
     <StyledWrapper >
 
-    <HyperText text="The Future is AI." style={{color:'#F0F0F0', fontSize: '45px', margin:'60px', fontWeight:'600',fontFamily: 'Poppins',}} />
+    <HyperText text="The Future is AI." className='md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl'style={{color:'#F0F0F0', fontSize: '45px', margin:'60px', fontWeight:'600',fontFamily: 'Poppins',}} />
 
 
       <div className="pcard">

@@ -6,8 +6,8 @@ import TextReveal from "@/components/magicui/text-reveal";
 const Card = () => {
   return (
     <StyledWrapper >  
-      <div className={"sticky top-[50px] mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem] mb-[120px]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
-            <TextReveal text="Tailored Tech Solutions."/>
+      <div className={"title sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent px-[1rem] py-[2rem] mb-[120px]"} style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <TextReveal text="Tailored Tech Solutions." />
       </div>    
       <div className="cards-container"> {/* Contenedor para las tarjetas */}
         <div className="card">
@@ -50,12 +50,19 @@ const StyledWrapper = styled.div`
   align-items: center; /* Centra el contenido horizontalmente */
 
   .title {
-    font-family: 'Poppins', sans-serif; /* Cambiar a la fuente elegida */
-    font-weight: 700; /* Negrita */
-    font-size: 30px; /* Tamaño del título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-    color: white; /* Color del texto del título */
+ font-size:65px;
+  margin-top:-650px;
+  margin-bottom: 200px;
+}
+
+/* Para pantallas pequeñas, como celulares */
+@media (max-width: 768px) {
+  .title {
+    margin-top:-650px;
+    margin-bottom: 750px;
   }
+}
+
 
   .cards-container {
     z-index:3;
