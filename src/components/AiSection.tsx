@@ -6,7 +6,7 @@ import HyperText from "@/components/magicui/hyper-text";
 const PCard = () => {
   return (
     <StyledWrapper style={{
-      background: 'radial-gradient(ellipse -20% 50% at 50% 80%, rgba(120, 119, 198, 0.3), transparent)',
+       background: 'radial-gradient(ellipse -20% 50% at 50% 80%, rgba(120, 119, 198, 0.3), transparent)',
        paddingBottom: '10px'
     }} >
 

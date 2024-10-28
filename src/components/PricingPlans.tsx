@@ -33,7 +33,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 30vh;
 
   .centered-content {
     text-align: center;

@@ -40,7 +40,7 @@ const MembershipSection = () => {
   return (
     <section className="py-20 px-4 bg-black relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full" style={{
-        background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent)'
+        background: 'radial-gradient(ellipse 70% 40% at 50% 60%, rgba(120, 119, 198, 0.3), transparent)'
       }} />
       
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 relative z-10">
