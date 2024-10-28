@@ -50,9 +50,10 @@ const MembershipSection = () => {
           transition={{ duration: 0.5 }}
           className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800"
         >
-          <div className="inline-flex px-3 py-1 rounded-full bg-pink-500/10 text-pink-500 text-sm font-medium mb-4">
+          <div className="inline-flex px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 text-sm font-medium mb-4">
             Slots available
           </div>
+
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Join IsCoders</h2>
           
           <div className="space-y-4">
@@ -77,24 +78,26 @@ const MembershipSection = () => {
           <h2 className="text-3xl font-bold mb-6">Membership</h2>
           
           <ToggleGroup 
-            type="single" 
-            value={plan}
-            onValueChange={(value) => value && setPlan(value)}
-            className="mb-8 justify-start bg-zinc-800/50 p-1 rounded-full"
-          >
-            <ToggleGroupItem 
-              value="standard" 
-              className="rounded-full px-6 data-[state=on]:bg-black"
-            >
-              Standard
-            </ToggleGroupItem>
-            <ToggleGroupItem 
-              value="pro" 
-              className="rounded-full px-6 data-[state=on]:bg-black flex items-center gap-1"
-            >
-              Pro <Zap className="w-4 h-4 text-yellow-400" />
-            </ToggleGroupItem>
-          </ToggleGroup>
+                type="single" 
+                value={plan}
+                onValueChange={(value) => value && setPlan(value)}
+                className="mb-8 justify-start bg-zinc-800/50 p-1 rounded-full"
+>
+                <ToggleGroupItem 
+                  value="standard" 
+                  className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500"
+                >
+                  Standard
+                </ToggleGroupItem>
+                
+                <ToggleGroupItem 
+                  value="pro" 
+                  className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
+                >
+                  Pro <Zap className="w-4 h-4 text-yellow-400" />
+                </ToggleGroupItem>
+            </ToggleGroup>
+
 
           <div className="mb-8">
             <div className="flex items-baseline gap-1">
@@ -120,9 +123,10 @@ const MembershipSection = () => {
             <Button className="w-full bg-white text-black hover:bg-zinc-200">
               Get started
             </Button>
-            <Button variant="link">
+            <Button variant="link" style={{ color: '#007bff' }}>
               book a call
             </Button>
+
           </div>
         </motion.div>
       </div>

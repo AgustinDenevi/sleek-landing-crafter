@@ -5,12 +5,15 @@ import HyperText from "@/components/magicui/hyper-text";
 
 const PCard = () => {
   return (
-    <StyledWrapper >
+    <StyledWrapper style={{
+      background: 'radial-gradient(ellipse -20% 50% at 50% 80%, rgba(120, 119, 198, 0.3), transparent)',
+       paddingBottom: '10px'
+    }} >
 
     <HyperText text="The Future is AI." className='md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl'style={{color:'#F0F0F0', fontSize: '45px', margin:'60px', fontWeight:'600',fontFamily: 'Poppins',}} />
 
 
-      <div className="pcard">
+      <div className="pcard" >
         <div className="border" />
         <div className="content">
           <div className="logo">
@@ -70,6 +73,7 @@ const StyledWrapper = styled.div`
 display: flex; 
   flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
   align-items: center; /* Centra el contenido horizontalmente */
+  
   .pcard {
   width: 300px;
   height: 200px;
