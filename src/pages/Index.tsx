@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import IconCloudSection from '../components/IconCloudSection';
 import PCard from '../components/AiSection';
 import PricingPlans from '../components/PricingPlans';
+import MembershipSection from '../components/MembershipSection';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 
@@ -13,6 +13,7 @@ const Index = () => {
       <Hero />
       <IconCloudSection />
       <PCard />
+      <MembershipSection />
       <PricingPlans />
       <Testimonials />
       <Footer />
