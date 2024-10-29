@@ -2,15 +2,40 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const Card = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <StyledWrapper className="pt-2 sm:pt-6 md:pt-10">  
       <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }}>
             <TextReveal text="Tailored Tech Solutions." />
       </div>    
-      <div className="cards-container"> {/* Contenedor para las tarjetas */}
-        <div className="card">
+      <div className="cards-container" ref={ref}> {/* Contenedor para las tarjetas */}
+        <motion.div 
+          className="card"
+          initial={{ x: 200, opacity: 0 }} // Comienza en el centro, invisible
+          animate={isInView ? { x: -100, opacity: 1 } : { x: 0, opacity: 0 }} // Se mueve a la izquierda
+          transition={{ duration: 2, delay: 1 }} // Animación suave
+        >
+          <div className="card2">
+            <h3>Get your</h3>
+            <h2 className="service-title">Mobile App</h2>
+            <div className="icon">
+              <FaMobileAlt />
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="card"
+          initial={{ x: 0, opacity: 0 }} // Comienza en el centro, invisible
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }} // Se vuelve visible
+          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
+        >
           <div className="card2">
             <h3>Get your</h3>
             <h2 className="service-title">Custom Software</h2>
@@ -18,27 +43,22 @@ const Card = () => {
               <FaCode />
             </div>
           </div>
-        </div>
-        <div className="card">
-          <div className="card2">
-            
-            <h3>Get your</h3>
-            <h2 className="service-title">Mobile App</h2>
-            <div className="icon">
-              <FaMobileAlt />
-            </div>
-          </div>
-        </div>
-        <div className="card">
+        </motion.div>
+
+        <motion.div 
+          className="card"
+          initial={{ x: -200, opacity: 0 }} // Comienza en el centro, invisible
+          animate={isInView ? { x: 100, opacity: 1 } : { x: 0, opacity: 0 }} // Se mueve a la derecha
+          transition={{ duration: 2, delay: 1 }} // Animación suave
+        >
           <div className="card2">
             <h3>Get your</h3>
-            
             <h2 className="service-title">Web Site</h2>
             <div className="icon">
               <FaGlobe />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </StyledWrapper>
   );
