@@ -38,7 +38,7 @@ const MembershipSection = () => {
   const currentPlan = plans[plan as keyof typeof plans];
 
   return (
-    <section className="py-20 px-4 bg-black relative overflow-hidden">
+    <section id="membership-section" className="py-20 px-4 bg-black relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full" style={{
         background: 'radial-gradient(ellipse 70% 40% at 50% 60%, rgba(120, 119, 198, 0.3), transparent)'
       }} />
@@ -123,7 +123,11 @@ const MembershipSection = () => {
             <Button className="w-full bg-white text-black hover:bg-zinc-200">
               Get started
             </Button>
-            <Button variant="link" style={{ color: '#007bff' }}>
+            <Button 
+              variant="link" 
+              style={{ color: '#007bff' }}
+              onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
+            >
               book a call
             </Button>
 
