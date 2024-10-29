@@ -2,25 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
-import { motion, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 const Card = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const isMobile = window.innerWidth < 768; // Determina si es móvil
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+
+  // Transformaciones para las animaciones
+  const mobileAppX = useTransform(scrollYProgress, [0.5, 0], [300, 0]); // Mueve hacia la izquierda
+  const webSiteX = useTransform(scrollYProgress, [0.5, 0], [-300, 0]); // Mueve hacia la derecha
+  const opacity = useTransform(scrollYProgress, [0.5, 0], [0, 1]); // Cambia la opacidad
 
   return (
-    <StyledWrapper className="pt-2 sm:pt-6 md:pt-10">  
+    <StyledWrapper className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto">  
       <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }}>
             <TextReveal text="Tailored Tech Solutions." />
       </div>    
-      <div className="cards-container" ref={ref}> {/* Contenedor para las tarjetas */}
+      <div className="cards-container mt-[-200px]  " ref={ref}> {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
-          initial={isMobile ? { y: 100, opacity: 0 } : { x: 200, opacity: 0 }} // Comienza desde abajo o desde la derecha
-          animate={isInView ? (isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }) : (isMobile ? { y: 100, opacity: 0 } : { x: 200, opacity: 0 })} // Se mueve hacia arriba o hacia la izquierda
-          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
+          style={{ x: mobileAppX, opacity: opacity }} // Aplica las transformaciones
+          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -33,9 +38,8 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          initial={{ opacity: 0 }} // Comienza invisible
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }} // Se vuelve visible
-          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
+          style={{ opacity: opacity }} // Cambia la opacidad
+          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -48,9 +52,8 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          initial={isMobile ? { y: -100, opacity: 0 } : { x: -200, opacity: 0 }} // Comienza desde arriba o desde la izquierda
-          animate={isInView ? (isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }) : (isMobile ? { y: -100, opacity: 0 } : { x: -200, opacity: 0 })} // Se mueve hacia abajo o hacia la derecha
-          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
+          style={{ x: webSiteX, opacity: opacity }} // Aplica las transformaciones
+          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -85,13 +88,13 @@ const StyledWrapper = styled.div`
 }
 
 
-  .cards-container {
-    z-index:3;
-    display: flex; /* Alinea las tarjetas en fila */
-    justify-content: center; /* Centra las tarjetas en el contenedor */
-    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en la siguiente línea si no hay suficiente espacio */
-    
-  }
+.cards-container {
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 
   .card {
     display: flex;
