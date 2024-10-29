@@ -8,6 +8,7 @@ import { useRef } from 'react';
 const Card = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isMobile = window.innerWidth < 768; // Determina si es móvil
 
   return (
     <StyledWrapper className="pt-2 sm:pt-6 md:pt-10">  
@@ -17,9 +18,9 @@ const Card = () => {
       <div className="cards-container" ref={ref}> {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
-          initial={{ x: 200, opacity: 0 }} // Comienza en el centro, invisible
-          animate={isInView ? { x: -100, opacity: 1 } : { x: 0, opacity: 0 }} // Se mueve a la izquierda
-          transition={{ duration: 2, delay: 1 }} // Animación suave
+          initial={isMobile ? { y: 100, opacity: 0 } : { x: 200, opacity: 0 }} // Comienza desde abajo o desde la derecha
+          animate={isInView ? (isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }) : (isMobile ? { y: 100, opacity: 0 } : { x: 200, opacity: 0 })} // Se mueve hacia arriba o hacia la izquierda
+          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -32,7 +33,7 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          initial={{ x: 0, opacity: 0 }} // Comienza en el centro, invisible
+          initial={{ opacity: 0 }} // Comienza invisible
           animate={isInView ? { opacity: 1 } : { opacity: 0 }} // Se vuelve visible
           transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
         >
@@ -47,9 +48,9 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          initial={{ x: -200, opacity: 0 }} // Comienza en el centro, invisible
-          animate={isInView ? { x: 100, opacity: 1 } : { x: 0, opacity: 0 }} // Se mueve a la derecha
-          transition={{ duration: 2, delay: 1 }} // Animación suave
+          initial={isMobile ? { y: -100, opacity: 0 } : { x: -200, opacity: 0 }} // Comienza desde arriba o desde la izquierda
+          animate={isInView ? (isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }) : (isMobile ? { y: -100, opacity: 0 } : { x: -200, opacity: 0 })} // Se mueve hacia abajo o hacia la derecha
+          transition={{ duration: 0.5, delay: 0.5 }} // Animación suave
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -146,6 +147,18 @@ const StyledWrapper = styled.div`
 
   .textoTitle{
   z-index:11!important;
+  }
+
+  @media (min-width: 768px) {
+    .cards-container {
+      flex-direction: row; /* Asegúrate de que las tarjetas estén en fila en pantallas más grandes */
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cards-container {
+      flex-direction: column; /* Asegúrate de que las tarjetas estén en columna en pantallas pequeñas */
+    }
   }
 `;
 
