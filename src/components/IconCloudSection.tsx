@@ -12,20 +12,23 @@ const Card = () => {
   });
 
   // Transformaciones para las animaciones
-  const mobileAppX = useTransform(scrollYProgress, [0.5, 0], [300, 0]); // Mueve hacia la izquierda
-  const webSiteX = useTransform(scrollYProgress, [0.5, 0], [-300, 0]); // Mueve hacia la derecha
-  const opacity = useTransform(scrollYProgress, [0.5, 0], [0, 1]); // Cambia la opacidad
+  const mobileAppX = useTransform(scrollYProgress, [0, 1], [300, 0]); // Mueve hacia la izquierda
+  const webSiteX = useTransform(scrollYProgress, [0, 1], [-300, 0]); // Mueve hacia la derecha
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]); // Cambia la opacidad
 
   return (
-    <StyledWrapper className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto">  
-      <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }}>
+    <StyledWrapper className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>  
+   
+      <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }} >
             <TextReveal text="Tailored Tech Solutions." />
-      </div>    
-      <div className="cards-container mt-[-200px]  " ref={ref}> {/* Contenedor para las tarjetas */}
+            
+      </div> 
+         
+      <div className="cards-container relative    " > {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
           style={{ x: mobileAppX, opacity: opacity }} // Aplica las transformaciones
-          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
+          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -39,7 +42,7 @@ const Card = () => {
         <motion.div 
           className="card"
           style={{ opacity: opacity }} // Cambia la opacidad
-          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
+          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -53,7 +56,7 @@ const Card = () => {
         <motion.div 
           className="card"
           style={{ x: webSiteX, opacity: opacity }} // Aplica las transformaciones
-          transition={{ duration: 0.8, delay: 0 }} // Animación suave con retraso
+          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
             <h3>Get your</h3>
