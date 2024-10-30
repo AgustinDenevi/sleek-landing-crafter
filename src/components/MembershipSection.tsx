@@ -67,7 +67,7 @@ const MembershipSection = () => {
                   <h3 className="text-lg font-semibold mb-2">Book a 15-min intro call</h3>
                   <p className="text-zinc-400">Learn more about how IsCoders works and how it can help you.</p>
                 </div>
-                <FaExternalLinkAlt className="ml-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+                <FaExternalLinkAlt className="ml-2 opacity-0 transition-opacity duration-200 group-hover:opacity-80" />
               </div>
             </div>
             
