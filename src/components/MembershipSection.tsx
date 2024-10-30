@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const MembershipSection = () => {
   const [plan, setPlan] = useState('standard');
@@ -57,9 +58,17 @@ const MembershipSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Join IsCoders</h2>
           
           <div className="space-y-4">
-            <div className="bg-zinc-800/50 p-6 rounded-xl hover:bg-zinc-800/70 transition-colors cursor-pointer">
-              <h3 className="text-lg font-semibold mb-2">Book a 15-min intro call</h3>
-              <p className="text-zinc-400">Learn more about how IsCoders works and how it can help you.</p>
+            <div 
+              className="bg-zinc-800/50 p-6 rounded-xl hover:bg-zinc-800/70 transition-colors cursor-pointer"
+              onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
+            >
+              <div className="flex justify-between items-center group">
+                <div className="flex flex-col">
+                  <h3 className="text-lg font-semibold mb-2">Book a 15-min intro call</h3>
+                  <p className="text-zinc-400">Learn more about how IsCoders works and how it can help you.</p>
+                </div>
+                <FaExternalLinkAlt className="ml-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+              </div>
             </div>
             
             <div className="bg-zinc-800/50 p-6 rounded-xl hover:bg-zinc-800/70 transition-colors cursor-pointer">
@@ -119,17 +128,17 @@ const MembershipSection = () => {
             </ul>
           </div>
 
-          <div className="flex items-center gap-4">
-            <Button className="w-full bg-white text-black hover:bg-zinc-200">
+          <div className="flex items-center gap-4 justify-center">
+            <Button className="w-3/4 bg-white text-black hover:bg-zinc-200">
               Get started
             </Button>
-            <Button 
+            {/*<Button 
               variant="link" 
               style={{ color: '#007bff' }}
               onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
             >
               book a call
-            </Button>
+            </Button>*/}
 
           </div>
         </motion.div>

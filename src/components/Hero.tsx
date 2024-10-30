@@ -29,12 +29,8 @@ const Hero = () => {
         ease={50}
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
-        <div className="text-white text-xl font-bold">
+        <div className="text-white text-3xl font-bold">
           <HyperText text="<IsCoders />" />
-        </div>
-        <div>
-          <button className="text-white mr-2">Log in</button>
-          <button className="text-white">Sign up</button>
         </div>
       </nav>
 
