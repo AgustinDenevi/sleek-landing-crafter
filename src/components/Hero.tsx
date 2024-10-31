@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Particles from "./magicui/particles";
 import HyperText from "@/components/magicui/hyper-text";
-import TextReveal from "@/components/magicui/text-reveal";
+import { WordRotate } from "@/components/magicui/word-rotate";
+
 
 const Hero = () => {
   return (
@@ -34,7 +35,7 @@ const Hero = () => {
         </div>
       </nav>
 
-      <div className="relative max-w-4xl mx-auto mt-[150px]">
+      <div className="relative max-w-4xl mx-auto mt-[150px] text-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +52,11 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2 text-white"
         >
-          <HyperText text="<IsCoders />" />
+          <HyperText className="text-6xl " text="We build : " />
+          <WordRotate
+            className="text-12xl m-5 font-bold text-white dark:text-white"
+            words={["Custom Software", "Mobile Apps", "Web Pages"]}
+          />
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

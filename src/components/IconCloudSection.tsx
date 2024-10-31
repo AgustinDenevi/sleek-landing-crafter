@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
 
 const Card = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
   });
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Ajusta el tamaño según tus necesidades
+    };
+
+    handleResize(); // Verifica el tamaño inicial
+    window.addEventListener('resize', handleResize); // Escucha cambios de tamaño
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Limpia el evento al desmontar
+    };
+  }, []);
 
   // Transformaciones para las animaciones
   const mobileAppX = useTransform(scrollYProgress, [0, 1], [300, 0]); // Mueve hacia la izquierda
@@ -27,7 +41,10 @@ const Card = () => {
       <div className="cards-container relative    " > {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
-          style={{ x: mobileAppX, opacity: opacity }} // Aplica las transformaciones
+          style={{
+            x: isMobile ? 0 : mobileAppX, // Sin animación en móvil
+            opacity: isMobile ? 1 : opacity // Sin animación en móvil
+          }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
@@ -41,7 +58,9 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          style={{ opacity: opacity }} // Cambia la opacidad
+          style={{
+            opacity: isMobile ? 1 : opacity // Sin animación en móvil
+          }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
@@ -55,7 +74,10 @@ const Card = () => {
 
         <motion.div 
           className="card"
-          style={{ x: webSiteX, opacity: opacity }} // Aplica las transformaciones
+          style={{
+            x: isMobile ? 0 : webSiteX, // Sin animación en móvil
+            opacity: isMobile ? 1 : opacity // Sin animación en móvil
+          }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
         >
           <div className="card2">
