@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Iphone15Pro from "@/components/ui/iphone-15-pro";
+import imagen1 from "../../public/imagen1.jpeg";
+import imagen2 from "../../public/imagen2.jpeg";
+import imagen3 from "../../public/imagen3.jpeg";
 
 const Card = () => {
   const ref = useRef(null);
@@ -11,6 +15,8 @@ const Card = () => {
   });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [showIphone, setShowIphone] = useState(false); // Estado para controlar la visibilidad
+  const [iphoneSrc, setIphoneSrc] = useState("https://via.placeholder.com/430x880"); // Estado para el src
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,9 +36,14 @@ const Card = () => {
   const webSiteX = useTransform(scrollYProgress, [0, 1], [-300, 0]); // Mueve hacia la derecha
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]); // Cambia la opacidad
 
+  const handleCardClick = (src: string) => {
+    setIphoneSrc(src); // Actualiza el src según la tarjeta clickeada
+    setShowIphone(true); // Muestra el div
+  };
+
   return (
-    <StyledWrapper className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>  
-   
+    <StyledWrapper >  
+    <div className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>
       <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }} >
             <TextReveal text="Tailored Tech Solutions." />
             
@@ -46,6 +57,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
+          onClick={() => handleCardClick(imagen1)} // Cambia el src según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -62,6 +74,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
+          onClick={() => handleCardClick(imagen2)} // Cambia el src según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -79,6 +92,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
+          onClick={() => handleCardClick(imagen3)} // Cambia el src según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -89,14 +103,18 @@ const Card = () => {
           </div>
         </motion.div>
       </div>
+      </div>
+      <div className={`relative flex justify-center ${showIphone ? '' : 'hidden'}`}> {/* Controla la visibilidad */}
+        <Iphone15Pro
+          className="size-2/12"
+          src={iphoneSrc} // Usa el src del estado
+        />
+      </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-  display: flex; 
-  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
-  align-items: center; /* Centra el contenido horizontalmente */
 
   .title {
  font-size:65px;
@@ -111,7 +129,12 @@ const StyledWrapper = styled.div`
     margin-bottom: 980px;
   }
 }
+.divContainAll{
+  display: flex; 
+  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
+  align-items: center; /* Centra el contenido horizontalmente */
 
+}
 
 .cards-container {
     z-index: 3;
