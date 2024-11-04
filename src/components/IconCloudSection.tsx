@@ -106,7 +106,7 @@ const Card = () => {
       </div>
       <div className={`relative flex justify-center ${showIphone ? '' : 'hidden'}`}> {/* Controla la visibilidad */}
         <Iphone15Pro
-          className="size-2/12"
+          className={`size-${isMobile ? '1/2' : '2/12'} ${isMobile ? 'm-5' : ''}`} // Agrega margen solo en móvil
           src={iphoneSrc} // Usa el src del estado
         />
       </div>
