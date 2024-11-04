@@ -31,7 +31,7 @@ const Hero = () => {
       />
       <nav className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center">
         <div className="text-white text-3xl font-bold">
-          <HyperText text="<IsCoders />" />
+          <HyperText text="IsCoders S.A." />
         </div>
       </nav>
 

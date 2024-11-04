@@ -19,7 +19,7 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section className="py-20 px-4 bg-gray-800">
-      <h2 className="text-3xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
+      <h2 className="text-3xl font-bold text-center mb-12">Feedback</h2>
       <div className="flex flex-wrap justify-center gap-8">
         {testimonials.map((testimonial, index) => (
           <motion.div
