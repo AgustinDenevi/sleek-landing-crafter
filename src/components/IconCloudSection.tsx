@@ -41,6 +41,10 @@ const Card = () => {
     setShowIphone(true); // Muestra el div
   };
 
+  const handleExit = () => {
+    setShowIphone(false); // Oculta el div al salir
+  };
+
   return (
     <StyledWrapper >  
     <div className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>
@@ -104,10 +108,11 @@ const Card = () => {
         </motion.div>
       </div>
       </div>
-      <div className={`relative flex justify-center ${showIphone ? '' : 'hidden'}`}> {/* Controla la visibilidad */}
+      <div className={`relative flex justify-center transition-opacity duration-300 ${showIphone ? 'opacity-100' : 'opacity-0 hidden'}`}> {/* Controla la visibilidad con transición */}
         <Iphone15Pro
           className={`size-${isMobile ? '1/2' : '2/12'} ${isMobile ? 'm-5' : ''}`} // Agrega margen solo en móvil
           src={iphoneSrc} // Usa el src del estado
+          onClick={handleExit} // Desplaza al hacer clic en el teléfono
         />
       </div>
     </StyledWrapper>
