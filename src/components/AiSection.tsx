@@ -8,7 +8,7 @@ const PCard = () => {
     <StyledWrapper style={{
        background: 'radial-gradient(ellipse -20% 50% at 50% 80%, rgba(120, 119, 198, 0.3), transparent)',
        paddingBottom: '10px'
-    }} >
+    }} onClick={() => window.open('http://ai.iscoders.com.ar/', '_blank')}>
 
     <HyperText text="The Future is AI." className='md:p-8 md:text-3xl lg:p-10 lg:text-4xl xl:text-5xl'style={{color:'#F0F0F0', fontSize: '45px', margin:'60px', fontWeight:'600',fontFamily: 'Poppins',}} />
 

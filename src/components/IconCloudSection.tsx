@@ -48,12 +48,12 @@ const Card = () => {
   return (
     <StyledWrapper >  
     <div className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>
-      <div className={"title sticky top-0 mx-auto "} style={{ fontFamily: 'Poppins, sans-serif' }} >
+      <div className={"title sticky top-0 mx-auto sm:ml-[120px] "} style={{ fontFamily: 'Poppins, sans-serif' }} >
             <TextReveal text="Tailored Tech Solutions." />
             
       </div> 
          
-      <div className="cards-container relative    " > {/* Contenedor para las tarjetas */}
+      <div className="cards-container relative " > {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
           style={{
@@ -108,7 +108,7 @@ const Card = () => {
         </motion.div>
       </div>
       </div>
-      <div className={`relative flex justify-center transition-opacity duration-300 ${showIphone ? 'opacity-100' : 'opacity-0 hidden'}`}> {/* Controla la visibilidad con transición */}
+      <div className={`relative flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100' : 'opacity-0 hidden'}`}> {/* Centra vertical y horizontalmente */}
         <Iphone15Pro
           className={`size-${isMobile ? '1/2' : '2/12'} ${isMobile ? 'm-5' : ''}`} // Agrega margen solo en móvil
           src={iphoneSrc} // Usa el src del estado
