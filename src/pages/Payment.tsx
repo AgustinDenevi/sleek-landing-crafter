@@ -7,10 +7,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/components/ui/use-toast';
 
 const Payment = () => {
   const [plan, setPlan] = useState('standard');
+  const [paymentMethod, setPaymentMethod] = useState('stripe');
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const plans = {
     standard: {
@@ -24,6 +29,52 @@ const Payment = () => {
   };
 
   const currentPlan = plans[plan as keyof typeof plans];
+
+  const handleMercadoPagoPayment = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
+        toast({
+          title: "Error",
+          description: "Please sign in to continue",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const response = await fetch(
+        'https://kaomksywzvzmeqxsamjt.functions.supabase.co/create-mp-preference',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({ plan_type: plan }),
+        }
+      );
+
+      const { initPoint } = await response.json();
+      window.location.href = initPoint;
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (paymentMethod === 'mercadopago') {
+      await handleMercadoPagoPayment();
+    } else {
+      // Existing Stripe logic
+      navigate('/payment/stripe');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white py-20 px-4">
@@ -67,40 +118,27 @@ const Payment = () => {
             <p className="text-zinc-400">{currentPlan.description}</p>
           </Card>
 
-          <form className="space-y-6">
-            <div>
-              <Label htmlFor="card">Card number</Label>
-              <Input 
-                id="card"
-                type="text" 
-                placeholder="1234 1234 1234 1234"
-                className="bg-zinc-800/50 border-zinc-700 text-white"
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="expiry">Expiry date</Label>
-                <Input 
-                  id="expiry"
-                  type="text" 
-                  placeholder="MM/YY"
-                  className="bg-zinc-800/50 border-zinc-700 text-white"
-                />
-              </div>
-              <div>
-                <Label htmlFor="cvc">CVC</Label>
-                <Input 
-                  id="cvc"
-                  type="text" 
-                  placeholder="123"
-                  className="bg-zinc-800/50 border-zinc-700 text-white"
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-4">
+              <Label>Select payment method</Label>
+              <RadioGroup
+                value={paymentMethod}
+                onValueChange={setPaymentMethod}
+                className="grid grid-cols-2 gap-4"
+              >
+                <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
+                  <RadioGroupItem value="stripe" id="stripe" />
+                  <Label htmlFor="stripe" className="cursor-pointer">Credit/Debit Card</Label>
+                </div>
+                <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
+                  <RadioGroupItem value="mercadopago" id="mercadopago" />
+                  <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
+                </div>
+              </RadioGroup>
             </div>
 
-            <Button className="w-full bg-white text-black hover:bg-zinc-200">
-              Subscribe now
+            <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200">
+              Continue to payment
             </Button>
           </form>
         </motion.div>
