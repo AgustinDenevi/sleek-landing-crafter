@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 
+
 const Payment = () => {
   const [plan, setPlan] = useState('standard');
   const [paymentMethod, setPaymentMethod] = useState('stripe');
