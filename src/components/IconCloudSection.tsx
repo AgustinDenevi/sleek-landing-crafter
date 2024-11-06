@@ -48,12 +48,12 @@ const Card = () => {
   return (
     <StyledWrapper >  
     <div className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>
-      <div className={"title sticky top-0 mx-auto sm:ml-[120px] "} style={{ fontFamily: 'Poppins, sans-serif' }} >
+      <div className={"title sticky top-0 mx-auto sm:ml-[150px] "} style={{ fontFamily: 'Poppins, sans-serif' }} >
             <TextReveal text="Tailored Tech Solutions." />
             
       </div> 
          
-      <div className="cards-container relative " > {/* Contenedor para las tarjetas */}
+      <div className="cards-container flex flex-col items-center relative " > {/* Contenedor para las tarjetas */}
         <motion.div 
           className="card"
           style={{
@@ -108,12 +108,14 @@ const Card = () => {
         </motion.div>
       </div>
       </div>
-      <div className={`relative flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100' : 'opacity-0 hidden'}`}> {/* Centra vertical y horizontalmente */}
-        <Iphone15Pro
-          className={`size-${isMobile ? '1/2' : '2/12'} ${isMobile ? 'm-5' : ''}`} // Agrega margen solo en móvil
-          src={iphoneSrc} // Usa el src del estado
-          onClick={handleExit} // Desplaza al hacer clic en el teléfono
-        />
+      <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100 pointer-events-auto backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 1000 }}>
+        <div className="relative flex justify-center items-center rounded-lg p-10 shadow-lg " style={{ maxHeight: '80vh', width: '80%', maxWidth: '400px' }}>
+          <Iphone15Pro
+            className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
+            src={iphoneSrc} // Usa el src del estado
+            onClick={handleExit} // Desplaza al hacer clic en el teléfono
+          />
+        </div>
       </div>
     </StyledWrapper>
   );
