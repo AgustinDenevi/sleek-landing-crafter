@@ -4,9 +4,11 @@ import { Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const MembershipSection = () => {
   const [plan, setPlan] = useState('standard');
+  const navigate = useNavigate();
 
   const plans = {
     standard: {
@@ -87,26 +89,25 @@ const MembershipSection = () => {
           <h2 className="text-3xl font-bold mb-6">Membership</h2>
           
           <ToggleGroup 
-                type="single" 
-                value={plan}
-                onValueChange={(value) => value && setPlan(value)}
-                className="mb-8 justify-start bg-zinc-800/50 p-1 rounded-full"
->
-                <ToggleGroupItem 
-                  value="standard" 
-                  className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500"
-                >
-                  Standard
-                </ToggleGroupItem>
-                
-                <ToggleGroupItem 
-                  value="pro" 
-                  className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
-                >
-                  Pro <Zap className="w-4 h-4 text-yellow-400" />
-                </ToggleGroupItem>
-            </ToggleGroup>
-
+            type="single" 
+            value={plan}
+            onValueChange={(value) => value && setPlan(value)}
+            className="mb-8 justify-start bg-zinc-800/50 p-1 rounded-full"
+          >
+            <ToggleGroupItem 
+              value="standard" 
+              className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500"
+            >
+              Standard
+            </ToggleGroupItem>
+            
+            <ToggleGroupItem 
+              value="pro" 
+              className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
+            >
+              Pro <Zap className="w-4 h-4 text-yellow-400" />
+            </ToggleGroupItem>
+          </ToggleGroup>
 
           <div className="mb-8">
             <div className="flex items-baseline gap-1">
@@ -129,17 +130,12 @@ const MembershipSection = () => {
           </div>
 
           <div className="flex items-center gap-4 justify-center">
-            <Button className="w-3/4 bg-white text-black hover:bg-zinc-200">
+            <Button 
+              className="w-3/4 bg-white text-black hover:bg-zinc-200"
+              onClick={() => navigate('/payment')}
+            >
               Get started
             </Button>
-            {/*<Button 
-              variant="link" 
-              style={{ color: '#007bff' }}
-              onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
-            >
-              book a call
-            </Button>*/}
-
           </div>
         </motion.div>
       </div>
