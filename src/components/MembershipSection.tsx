@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap } from 'lucide-react';
+import { Brush, Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -34,6 +34,16 @@ const MembershipSection = () => {
         'Unlimited stock photos',
         'Unlimited users',
         'Pause or cancel anytime'
+      ]
+    },
+    custom: {
+      price: 'Precio a consultar',
+      description: 'Plan personalizado según tus necesidades.',
+      features: [
+        'Solicitudes personalizadas',
+        'Soporte dedicado',
+        'Características a medida',
+        'Consulta inicial gratuita'
       ]
     }
   };
@@ -107,6 +117,14 @@ const MembershipSection = () => {
             >
               Pro <Zap className="w-4 h-4 text-yellow-400" />
             </ToggleGroupItem>
+
+            <ToggleGroupItem 
+                value="custom" 
+                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center justify-between  gap-1"
+              >
+                Custom
+                <Brush className="w-4 h-4 text-cyan-400" />
+              </ToggleGroupItem>
           </ToggleGroup>
 
           <div className="mb-8">

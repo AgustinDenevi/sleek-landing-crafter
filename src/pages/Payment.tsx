@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, ArrowLeft } from 'lucide-react';
+import { Zap, ArrowLeft, Brush } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
@@ -26,6 +26,10 @@ const Payment = () => {
     pro: {
       price: '7,995',
       description: 'Double the requests. Pause or cancel anytime.',
+    },
+    custom: {
+      price: 'Precio a consultar',
+      description: 'Plan personalizado según tus necesidades.',
     }
   };
 
@@ -117,6 +121,14 @@ const Payment = () => {
               >
                 Pro <Zap className="w-4 h-4 text-yellow-400" />
               </ToggleGroupItem>
+
+              <ToggleGroupItem 
+                value="custom" 
+                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center justify-between  gap-1"
+              >
+                Custom
+                <Brush className="w-4 h-4 text-cyan-400" />
+              </ToggleGroupItem>
             </ToggleGroup>
           </div>
 
@@ -129,27 +141,43 @@ const Payment = () => {
           </Card>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-4">
-              <Label>Select payment method</Label>
-              <RadioGroup
-                value={paymentMethod}
-                onValueChange={setPaymentMethod}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                  <RadioGroupItem value="stripe" id="stripe" className="text-yellow-500" />
-                  <Label htmlFor="stripe" className="cursor-pointer">Credit/Debit Card</Label>
-                </div>
-                <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                  <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-500" />
-                  <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
-                </div>
-              </RadioGroup>
-            </div>
+            {plan !== 'custom' && (
+              <div className="space-y-4">
+                <Label>Select payment method</Label>
+                <RadioGroup
+                  value={paymentMethod}
+                  onValueChange={setPaymentMethod}
+                  className="grid grid-cols-2 gap-4"
+                >
+                  <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
+                    <RadioGroupItem value="stripe" id="stripe" className="text-yellow-500" />
+                    <Label htmlFor="stripe" className="cursor-pointer">Credit/Debit Card</Label>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
+                    <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-500" />
+                    <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+            )}
 
-            <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200">
-              Continue to payment
-            </Button>
+            {plan === 'custom' && (
+              <div className="flex justify-center">
+                <Button 
+                  type="button"
+                  className="w-full bg-white text-black hover:bg-zinc-200"
+                  onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
+                >
+                  Schedule an Appointment
+                </Button>
+              </div>
+            )}
+
+            {plan !== 'custom' && (
+              <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200">
+                Continue to payment
+              </Button>
+            )}
           </form>
         </motion.div>
       </div>
