@@ -11,7 +11,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 
-
 const Payment = () => {
   const [plan, setPlan] = useState('standard');
   const [paymentMethod, setPaymentMethod] = useState('stripe');
@@ -72,17 +71,16 @@ const Payment = () => {
     if (paymentMethod === 'mercadopago') {
       await handleMercadoPagoPayment();
     } else {
-      // Existing Stripe logic
       navigate('/payment/stripe');
     }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white py-20 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-black text-white py-20 px-4 w-full overflow-x-hidden">
+      <div className="max-w-3xl mx-auto w-full">
         <Button
           variant="ghost"
-          className="mb-6 text-white hover:text-black/80"
+          className="mb-6 text-white hover:text-white/80"
           onClick={() => navigate(-1)}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -92,40 +90,40 @@ const Payment = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800"
+          className="bg-zinc-900/50 p-4 sm:p-8 rounded-2xl border border-zinc-800 w-full"
         >
-          <h1 className="text-3xl font-bold mb-8">Complete your subscription</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-8">Complete your subscription</h1>
           
-          <div className="mb-8">
+          <div className="mb-8 w-full">
             <Label>Select your plan</Label>
             <ToggleGroup 
               type="single" 
               value={plan}
               onValueChange={(value) => value && setPlan(value)}
-              className="mt-2 justify-start bg-zinc-800/50 p-1 rounded-full"
+              className="mt-2 justify-start bg-zinc-800/50 p-1 rounded-full w-full sm:w-auto flex-wrap"
             >
               <ToggleGroupItem 
                 value="standard" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500"
+                className="rounded-full px-4 sm:px-6 py-2 data-[state=on]:bg-black data-[state=on]:text-blue-500"
               >
                 Standard
               </ToggleGroupItem>
               
               <ToggleGroupItem 
                 value="pro" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
+                className="rounded-full px-4 sm:px-6 py-2 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
               >
                 Pro <Zap className="w-4 h-4 text-yellow-400" />
               </ToggleGroupItem>
             </ToggleGroup>
           </div>
 
-          <Card className="bg-zinc-800/50 p-6 mb-8">
+          <Card className="bg-zinc-800/50 p-4 sm:p-6 mb-8">
             <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-bold text-white">${currentPlan.price}</span>
+              <span className="text-2xl sm:text-3xl font-bold text-white">${currentPlan.price}</span>
               <span className="text-zinc-400">/m</span>
             </div>
-            <p className="text-zinc-400">{currentPlan.description}</p>
+            <p className="text-zinc-400 text-sm sm:text-base">{currentPlan.description}</p>
           </Card>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -134,7 +132,7 @@ const Payment = () => {
               <RadioGroup
                 value={paymentMethod}
                 onValueChange={setPaymentMethod}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
                   <RadioGroupItem value="stripe" id="stripe" className="text-yellow-500" />
