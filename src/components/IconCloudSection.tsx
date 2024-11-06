@@ -1,192 +1,125 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { FaCode, FaMobileAlt, FaGlobe, FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importa íconos de react-icons
+import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa';
 import TextReveal from "@/components/magicui/text-reveal";
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Iphone15Pro from "@/components/ui/iphone-15-pro";
+import { useScroll, useTransform } from 'framer-motion';
 import imagen1 from "../../public/imagen1.jpeg";
 import imagen2 from "../../public/imagen2.jpeg";
 import imagen3 from "../../public/imagen3.jpeg";
+import ServiceCard from './cards/ServiceCard';
+import IphonePreviewModal from './modals/IphonePreviewModal';
 
-const Card = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
-
+const IconCloudSection = () => {
+  const { scrollYProgress } = useScroll();
   const [isMobile, setIsMobile] = useState(false);
-  const [showIphone, setShowIphone] = useState(false); // Estado para controlar la visibilidad
-  const [iphoneSrc, setIphoneSrc] = useState("https://via.placeholder.com/430x880"); // Estado para el src
-  const [currentImage, setCurrentImage] = useState(0); // Estado para la imagen actual
-  const images = [imagen1, imagen2, imagen3]; // Array de imágenes
+  const [showIphone, setShowIphone] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [imagen1, imagen2, imagen3];
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Ajusta el tamaño según tus necesidades
+      setIsMobile(window.innerWidth < 768);
     };
-
-    handleResize(); // Verifica el tamaño inicial
-    window.addEventListener('resize', handleResize); // Escucha cambios de tamaño
-
-    return () => {
-      window.removeEventListener('resize', handleResize); // Limpia el evento al desmontar
-    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Transformaciones para las animaciones
-  const mobileAppX = useTransform(scrollYProgress, [0, 1], [300, 0]); // Mueve hacia la izquierda
-  const webSiteX = useTransform(scrollYProgress, [0, 1], [-300, 0]); // Mueve hacia la derecha
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]); // Cambia la opacidad
+  const mobileAppX = useTransform(scrollYProgress, [0, 1], [300, 0]);
+  const webSiteX = useTransform(scrollYProgress, [0, 1], [-300, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const handleCardClick = (imageIndex: number) => {
-    setCurrentImage(imageIndex); // Actualiza la imagen actual según la tarjeta clickeada
-    setShowIphone(true); // Muestra el modal
+    setCurrentImage(imageIndex);
+    setShowIphone(true);
   };
 
-  const handleExit = () => {
-    setShowIphone(false); // Oculta el div al salir
-  };
-
-  const handleNext = () => {
-    setCurrentImage((prev) => (prev + 1) % images.length); // Navegar a la siguiente imagen
-  };
-
-  const handlePrev = () => {
-    setCurrentImage((prev) => (prev - 1 + images.length) % images.length); // Navegar a la imagen anterior
-  };
+  const handleExit = () => setShowIphone(false);
+  const handleNext = () => setCurrentImage((prev) => (prev + 1) % images.length);
+  const handlePrev = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touchStartX = e.touches[0].clientX;
-
     const handleTouchMove = (e: TouchEvent) => {
       const touchEndX = e.touches[0].clientX;
       if (touchStartX - touchEndX > 50) {
-        handleNext(); // Desplazar a la siguiente imagen
+        handleNext();
         document.removeEventListener('touchmove', handleTouchMove);
       } else if (touchEndX - touchStartX > 50) {
-        handlePrev(); // Desplazar a la imagen anterior
+        handlePrev();
         document.removeEventListener('touchmove', handleTouchMove);
       }
     };
-
     document.addEventListener('touchmove', handleTouchMove);
   };
 
   return (
-    <StyledWrapper >  
-    <div className="pt-2 sm:pt-6 md:pt-10  sticky  mx-auto"  ref={ref}>
-      <div className={"title sticky top-0 mx-auto sm:ml-[150px] "} style={{ fontFamily: 'Poppins, sans-serif' }} >
+    <StyledWrapper>
+      <div className="w-full max-w-7xl mx-auto overflow-x-hidden">
+        <div className="pt-2 sm:pt-6 md:pt-10 sticky mx-auto">
+          <div className="title sticky top-0 mx-auto sm:ml-[150px]" style={{ fontFamily: 'Poppins, sans-serif' }}>
             <TextReveal text="Tailored Tech Solutions." />
-            
-      </div> 
-         
-      <div className="cards-container flex flex-col items-center relative " > {/* Contenedor para las tarjetas */}
-        <motion.div 
-          className="card"
-          style={{
-            x: isMobile ? 0 : mobileAppX, // Sin animación en móvil
-            opacity: isMobile ? 1 : opacity // Sin animación en móvil
-          }} 
-          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(0)} // Cambia el índice según la tarjeta
-        >
-          <div className="card2">
-            <h3>Get your</h3>
-            <h2 className="service-title">Mobile App</h2>
-            <div className="icon">
-              <FaMobileAlt />
-            </div>
           </div>
-        </motion.div>
 
-        <motion.div 
-          className="card"
-          style={{
-            opacity: isMobile ? 1 : opacity // Sin animación en móvil
-          }} 
-          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(1)} // Cambia el índice según la tarjeta
-        >
-          <div className="card2">
-            <h3>Get your</h3>
-            <h2 className="service-title">Custom Software</h2>
-            <div className="icon">
-              <FaCode />
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          className="card"
-          style={{
-            x: isMobile ? 0 : webSiteX, // Sin animación en móvil
-            opacity: isMobile ? 1 : opacity // Sin animación en móvil
-          }} 
-          transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(2)} // Cambia el índice según la tarjeta
-        >
-          <div className="card2">
-            <h3>Get your</h3>
-            <h2 className="service-title">Web Site</h2>
-            <div className="icon">
-              <FaGlobe />
-            </div>
-          </div>
-        </motion.div>
-      </div>
-      </div>
-      <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100 pointer-events-auto backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 1000, overflow: 'hidden' }} onTouchStart={handleTouchStart}>
-        <div className="relative flex flex-col justify-center items-center rounded-lg p-1 shadow-lg" style={{ maxHeight: '80vh', width: '80%', maxWidth: '100%', overflow: 'hidden' }}>
-          <Iphone15Pro
-            className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
-            src={images[currentImage]} // Usa el src de la imagen actual
-            onClick={handleExit} // Desplaza al hacer clic en el teléfono
-          />
-          
-          {/* Botones de navegación */}
-          <div className="flex justify-between w-full mt-4 items-center hidden md:flex"> {/* Oculta en móvil y muestra en pantallas medianas y grandes */}
-            <button onClick={handlePrev} className="bg-white text-black p-1 rounded-lg">
-              <FaArrowLeft />
-            </button>
-            <button onClick={handleNext} className="bg-white text-black p-1 rounded-lg">
-              <FaArrowRight />
-            </button>
+          <div className="cards-container flex flex-col items-center relative">
+            <ServiceCard
+              title="Mobile App"
+              Icon={FaMobileAlt}
+              onClick={() => handleCardClick(0)}
+              x={isMobile ? 0 : mobileAppX}
+              opacity={isMobile ? 1 : opacity}
+            />
+            <ServiceCard
+              title="Custom Software"
+              Icon={FaCode}
+              onClick={() => handleCardClick(1)}
+              opacity={isMobile ? 1 : opacity}
+            />
+            <ServiceCard
+              title="Web Site"
+              Icon={FaGlobe}
+              onClick={() => handleCardClick(2)}
+              x={isMobile ? 0 : webSiteX}
+              opacity={isMobile ? 1 : opacity}
+            />
           </div>
         </div>
-      </div> {/* Asegúrate de que este div tenga un estilo adecuado para centrar los botones */}
+      </div>
+
+      <IphonePreviewModal
+        showIphone={showIphone}
+        currentImage={currentImage}
+        images={images}
+        isMobile={isMobile}
+        handleExit={handleExit}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        handleTouchStart={handleTouchStart}
+      />
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-
   .title {
- font-size:65px;
-  margin-top:-650px;
-  margin-bottom: 200px;
-}
-
-/* Para pantallas pequeñas, como celulares */
-@media (max-width: 768px) {
-  .title {
-    margin-top:-650px;
-    margin-bottom: 980px;
+    font-size: 65px;
+    margin-top: -650px;
+    margin-bottom: 200px;
   }
-}
-.divContainAll{
-  display: flex; 
-  flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
-  align-items: center; /* Centra el contenido horizontalmente */
-overflow: hidden; 
-}
 
-.cards-container {
+  @media (max-width: 768px) {
+    .title {
+      margin-top: -650px;
+      margin-bottom: 980px;
+    }
+  }
+
+  .cards-container {
     z-index: 3;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
+  }
 
   .card {
     display: flex;
@@ -195,66 +128,61 @@ overflow: hidden;
     background-image: linear-gradient(90deg, #202BFA 0%, #20B5FA 100%);
     border-radius: 20px;
     transition: all 0.3s;
-    margin: 50px; 
+    margin: 50px;
   }
 
   .card2 {
     width: 250px;
     height: 310px;
     background-color: #1a1a1a;
-    border-radius: 16px; 
+    border-radius: 16px;
     transition: all 0.5s;
-    display: flex; /* Para centrar el contenido */
-    flex-direction: column; /* Organiza el contenido en columna */
-    align-items: center; /* Alinea los elementos horizontalmente */
-    justify-content: center; /* Alinea los elementos verticalmente */
-    color: white; /* Cambia el color del texto a blanco */
-    text-align: center; /* Centra el texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
   }
 
   .icon {
-    font-size: 35px; /* Tamaño del ícono */
-    margin-top: 10px;
-    margin-bottom: 10px; /* Espacio entre el ícono y el texto */
+    font-size: 35px;
+    margin: 10px 0;
   }
-  
+
   h3 {
-    font-family: 'Poppins', sans-serif; /* Asegúrate de que h3 use Poppins */
-    font-weight: 400; /* Peso normal para h3 */
-    margin: 0; /* Elimina margen */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0;
   }
 
   .service-title {
-    font-family: 'Poppins', sans-serif; /* Asegúrate de que los h2 usen Poppins */
-    font-weight: 600; /* Peso semi-negrita para el h2 */
-    font-size: 1.2rem; /* Aumenta el tamaño del h2 */
-    margin: 0; /* Elimina margen */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0;
   }
 
   .card2:hover {
     transform: scale(0.98);
-    border-radius: 20px; 
+    border-radius: 20px;
   }
 
   .card:hover {
     box-shadow: 0px 0px 30px 1px rgba(32, 43, 250, 0.3);
   }
 
-  .textoTitle{
-  z-index:11!important;
-  }
-
   @media (min-width: 768px) {
     .cards-container {
-      flex-direction: row; /* Asegúrate de que las tarjetas estén en fila en pantallas más grandes */
+      flex-direction: row;
     }
   }
 
   @media (max-width: 767px) {
     .cards-container {
-      flex-direction: column; /* Asegúrate de que las tarjetas estén en columna en pantallas pequeñas */
+      flex-direction: column;
     }
   }
 `;
 
-export default Card;
+export default IconCloudSection;
