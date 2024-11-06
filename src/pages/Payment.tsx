@@ -82,7 +82,7 @@ const Payment = () => {
       <div className="max-w-3xl mx-auto">
         <Button
           variant="ghost"
-          className="mb-6 text-white hover:text-white/80"
+          className="mb-6 text-white hover:text-black/80"
           onClick={() => navigate(-1)}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -122,7 +122,7 @@ const Payment = () => {
 
           <Card className="bg-zinc-800/50 p-6 mb-8">
             <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-bold">${currentPlan.price}</span>
+              <span className="text-3xl font-bold text-white">${currentPlan.price}</span>
               <span className="text-zinc-400">/m</span>
             </div>
             <p className="text-zinc-400">{currentPlan.description}</p>
@@ -137,11 +137,11 @@ const Payment = () => {
                 className="grid grid-cols-2 gap-4"
               >
                 <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                  <RadioGroupItem value="stripe" id="stripe" />
+                  <RadioGroupItem value="stripe" id="stripe" className="text-yellow-500" />
                   <Label htmlFor="stripe" className="cursor-pointer">Credit/Debit Card</Label>
                 </div>
                 <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                  <RadioGroupItem value="mercadopago" id="mercadopago" />
+                  <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-500" />
                   <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
                 </div>
               </RadioGroup>
