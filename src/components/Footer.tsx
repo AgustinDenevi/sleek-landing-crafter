@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 py-8 px-4">
+    <footer className="bg-gray-800 py-8 px-4 w-full">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <div className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
+        <div className="w-full w-auto text-center md:text-left mb-4 md:mb-0">
           <p>&copy; 2024 IsCoders S.A. All rights reserved.</p>
         </div>
         <nav className="w-full md:w-auto">

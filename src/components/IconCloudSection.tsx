@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { FaCode, FaMobileAlt, FaGlobe } from 'react-icons/fa'; // Importa íconos de react-icons
+import { FaCode, FaMobileAlt, FaGlobe, FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importa íconos de react-icons
 import TextReveal from "@/components/magicui/text-reveal";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Iphone15Pro from "@/components/ui/iphone-15-pro";
@@ -17,6 +17,8 @@ const Card = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showIphone, setShowIphone] = useState(false); // Estado para controlar la visibilidad
   const [iphoneSrc, setIphoneSrc] = useState("https://via.placeholder.com/430x880"); // Estado para el src
+  const [currentImage, setCurrentImage] = useState(0); // Estado para la imagen actual
+  const images = [imagen1, imagen2, imagen3]; // Array de imágenes
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,13 +38,38 @@ const Card = () => {
   const webSiteX = useTransform(scrollYProgress, [0, 1], [-300, 0]); // Mueve hacia la derecha
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]); // Cambia la opacidad
 
-  const handleCardClick = (src: string) => {
-    setIphoneSrc(src); // Actualiza el src según la tarjeta clickeada
-    setShowIphone(true); // Muestra el div
+  const handleCardClick = (imageIndex: number) => {
+    setCurrentImage(imageIndex); // Actualiza la imagen actual según la tarjeta clickeada
+    setShowIphone(true); // Muestra el modal
   };
 
   const handleExit = () => {
     setShowIphone(false); // Oculta el div al salir
+  };
+
+  const handleNext = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length); // Navegar a la siguiente imagen
+  };
+
+  const handlePrev = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length); // Navegar a la imagen anterior
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touchStartX = e.touches[0].clientX;
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchEndX = e.touches[0].clientX;
+      if (touchStartX - touchEndX > 50) {
+        handleNext(); // Desplazar a la siguiente imagen
+        document.removeEventListener('touchmove', handleTouchMove);
+      } else if (touchEndX - touchStartX > 50) {
+        handlePrev(); // Desplazar a la imagen anterior
+        document.removeEventListener('touchmove', handleTouchMove);
+      }
+    };
+
+    document.addEventListener('touchmove', handleTouchMove);
   };
 
   return (
@@ -61,7 +88,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(imagen1)} // Cambia el src según la tarjeta
+          onClick={() => handleCardClick(0)} // Cambia el índice según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -78,7 +105,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(imagen2)} // Cambia el src según la tarjeta
+          onClick={() => handleCardClick(1)} // Cambia el índice según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -96,7 +123,7 @@ const Card = () => {
             opacity: isMobile ? 1 : opacity // Sin animación en móvil
           }} 
           transition={{ duration: 0.5, delay: 0 }} // Animación suave con retraso
-          onClick={() => handleCardClick(imagen3)} // Cambia el src según la tarjeta
+          onClick={() => handleCardClick(2)} // Cambia el índice según la tarjeta
         >
           <div className="card2">
             <h3>Get your</h3>
@@ -108,15 +135,25 @@ const Card = () => {
         </motion.div>
       </div>
       </div>
-      <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100 pointer-events-auto backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 1000 }}>
-        <div className="relative flex justify-center items-center rounded-lg p-10 shadow-lg " style={{ maxHeight: '80vh', width: '80%', maxWidth: '400px' }}>
+      <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100 pointer-events-auto backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 1000, overflow: 'hidden' }} onTouchStart={handleTouchStart}>
+        <div className="relative flex flex-col justify-center items-center rounded-lg p-1 shadow-lg" style={{ maxHeight: '80vh', width: '80%', maxWidth: '100%', overflow: 'hidden' }}>
           <Iphone15Pro
             className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
-            src={iphoneSrc} // Usa el src del estado
+            src={images[currentImage]} // Usa el src de la imagen actual
             onClick={handleExit} // Desplaza al hacer clic en el teléfono
           />
+          
+          {/* Botones de navegación */}
+          <div className="flex justify-between w-full mt-4 items-center hidden md:flex"> {/* Oculta en móvil y muestra en pantallas medianas y grandes */}
+            <button onClick={handlePrev} className="bg-white text-black p-1 rounded-lg">
+              <FaArrowLeft />
+            </button>
+            <button onClick={handleNext} className="bg-white text-black p-1 rounded-lg">
+              <FaArrowRight />
+            </button>
+          </div>
         </div>
-      </div>
+      </div> {/* Asegúrate de que este div tenga un estilo adecuado para centrar los botones */}
     </StyledWrapper>
   );
 };
@@ -140,7 +177,7 @@ const StyledWrapper = styled.div`
   display: flex; 
   flex-direction: column; /* Alinea verticalmente el título y las tarjetas */
   align-items: center; /* Centra el contenido horizontalmente */
-
+overflow: hidden; 
 }
 
 .cards-container {
