@@ -4,6 +4,8 @@ import { FaCode, FaMobileAlt, FaGlobe, FaArrowLeft, FaArrowRight } from 'react-i
 import TextReveal from "@/components/magicui/text-reveal";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Iphone15Pro from "@/components/ui/iphone-15-pro";
+import Ipad from './ui/Ipad';
+import MacBook from './ui/mcbook';
 import imagen1 from "../../public/imagen1.jpeg";
 import imagen2 from "../../public/imagen2.jpeg";
 import imagen3 from "../../public/imagen3.jpeg";
@@ -137,11 +139,25 @@ const Card = () => {
       </div>
       <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ${showIphone ? 'opacity-100 pointer-events-auto backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 1000, overflow: 'hidden' }} onTouchStart={handleTouchStart}>
         <div className="relative flex flex-col justify-center items-center rounded-lg p-1 shadow-lg" style={{ maxHeight: '80vh', width: '80%', maxWidth: '100%', overflow: 'hidden' }}>
-          <Iphone15Pro
-            className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
-            src={images[currentImage]} // Usa el src de la imagen actual
-            onClick={handleExit} // Desplaza al hacer clic en el teléfono
-          />
+          {currentImage === 1 ? ( // Verifica si la imagen actual es la de Custom Software
+            <Ipad // Cambia a Ipad para Custom Software
+              className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
+              src={images[currentImage]} // Usa el src de la imagen actual
+              onClick={handleExit} // Desplaza al hacer clic en el iPad
+            />
+          ) : currentImage === 2 ? ( // Verifica si la imagen actual es la de Web Site
+            <MacBook // Cambia a MacBook para Web Site
+              className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
+              src={images[currentImage]} // Usa el src de la imagen actual
+              onClick={handleExit} // Desplaza al hacer clic en el Mac
+            />
+          ) : (
+            <Iphone15Pro // Mantiene Iphone15Pro para otras imágenes
+              className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
+              src={images[currentImage]} // Usa el src de la imagen actual
+              onClick={handleExit} // Desplaza al hacer clic en el teléfono
+            />
+          )}
           
           {/* Botones de navegación */}
           <div className="flex justify-center w-full mt-4 items-center hidden md:flex"> {/* Oculta en móvil y muestra en pantallas medianas y grandes */}
