@@ -147,7 +147,7 @@ const Card = () => {
             />
           ) : currentImage === 2 ? ( // Verifica si la imagen actual es la de Web Site
             <MacBook // Cambia a MacBook para Web Site
-              className={`size-${isMobile ? '1/3' : '1/10'}`} // Cambiado a '1/3' para móvil y '1/10' para escritorio
+              className={`size-${isMobile ? '1/2' : '1/10'}`} // Cambiado a '1/2' para móvil y '1/10' para escritorio
               src={images[currentImage]} // Usa el src de la imagen actual
               onClick={handleExit} // Desplaza al hacer clic en el Mac
             />
