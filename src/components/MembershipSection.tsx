@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Brush, Zap } from 'lucide-react';
 import { Button } from './ui/button';
@@ -8,7 +8,9 @@ import { useNavigate } from 'react-router-dom';
 
 const MembershipSection = () => {
   const [plan, setPlan] = useState('standard');
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const plans = {
     standard: {
@@ -50,17 +52,42 @@ const MembershipSection = () => {
 
   const currentPlan = plans[plan as keyof typeof plans];
 
+  const handleScroll = () => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="membership-section" className="py-20 px-4 bg-black relative overflow-hidden">
+    <motion.section 
+      id="membership-section" 
+      ref={sectionRef}
+      className="py-20 px-4 bg-black relative overflow-hidden"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="absolute inset-0 w-full h-full" style={{
         background: 'radial-gradient(ellipse 70% 40% at 50% 60%, rgba(120, 119, 198, 0.3), transparent)'
       }} />
       
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20, x: 100 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20, x: isVisible ? 0 : -100 }}
+          transition={{ duration: 0.7 }}
           className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800"
         >
           <div className="inline-flex px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 text-sm font-medium mb-4">
@@ -91,9 +118,9 @@ const MembershipSection = () => {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20, x: -100 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20, x: isVisible ? 0 : 100 }}
+          transition={{ duration: 0.7 }}
           className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800"
         >
           <h2 className="text-3xl font-bold mb-6">Membership</h2>
@@ -119,12 +146,12 @@ const MembershipSection = () => {
             </ToggleGroupItem>
 
             <ToggleGroupItem 
-                value="custom" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center justify-between  gap-1"
-              >
-                Custom
-                <Brush className="w-4 h-4 text-cyan-400" />
-              </ToggleGroupItem>
+              value="custom" 
+              className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center justify-between gap-1"
+            >
+              Custom
+              <Brush className="w-4 h-4 text-cyan-400" />
+            </ToggleGroupItem>
           </ToggleGroup>
 
           <div className="mb-8">
@@ -157,7 +184,7 @@ const MembershipSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

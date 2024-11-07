@@ -144,11 +144,11 @@ const Card = () => {
           />
           
           {/* Botones de navegación */}
-          <div className="flex justify-between w-full mt-4 items-center hidden md:flex"> {/* Oculta en móvil y muestra en pantallas medianas y grandes */}
-            <button onClick={handlePrev} className="bg-white text-black p-1 rounded-lg">
+          <div className="flex justify-center w-full mt-4 items-center hidden md:flex"> {/* Oculta en móvil y muestra en pantallas medianas y grandes */}
+            <button onClick={handlePrev} className="bg-white text-black p-1 mr-5 rounded-lg">
               <FaArrowLeft />
             </button>
-            <button onClick={handleNext} className="bg-white text-black p-1 rounded-lg">
+            <button onClick={handleNext} className="bg-white text-black p-1 ml-5 rounded-lg">
               <FaArrowRight />
             </button>
           </div>
