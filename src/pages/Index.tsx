@@ -5,6 +5,9 @@ import PCard from '../components/AiSection';
 import MembershipSection from '../components/MembershipSection';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
+import { Technologies } from '@/components/Technologies';
+
+
 
 const Index = () => {
   return (
@@ -12,6 +15,7 @@ const Index = () => {
       <Hero />
       
       <IconCloudSection />
+      <Technologies />
       <PCard />
       <MembershipSection />
       
