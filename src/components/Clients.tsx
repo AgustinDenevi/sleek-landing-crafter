@@ -60,7 +60,7 @@ export function MarqueeDemo() {
   return (
     <div className="relative flex h-[200px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl mt-[10px]">
       <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
+      {reviews.map((review) =>(
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>

@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 
+
+
 const reviews = [
   {
     name: "React.JS",
@@ -59,8 +61,8 @@ const ReviewCard = ({
 export function Technologies() {
   return (
     <div className="relative flex h-[200px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl mt-[10px]">
-      <Marquee  pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {reviews.map((review) => (
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>
