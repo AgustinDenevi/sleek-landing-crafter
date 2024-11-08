@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Particles from "./magicui/particles";
 import HyperText from "@/components/magicui/hyper-text";
 import { WordRotate } from "@/components/magicui/word-rotate";
-
+import { MarqueeDemo } from './Clients';
 
 const Hero = () => {
   return (
@@ -108,7 +108,9 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
+        
       </div>
+      <MarqueeDemo/>
     </motion.section>
   );
 };

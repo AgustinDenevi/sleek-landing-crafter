@@ -1,45 +1,51 @@
-import React, { ReactNode } from 'react';
 import { cn } from "@/lib/utils";
 
 interface MarqueeProps {
-  children: ReactNode;
-  direction?: 'left' | 'right';
-  pauseOnHover?: boolean;
-  reverse?: boolean;
-  speed?: number;
   className?: string;
+  reverse?: boolean;
+  pauseOnHover?: boolean;
+  children?: React.ReactNode;
+  vertical?: boolean;
+  repeat?: number;
+  [key: string]: any;
 }
 
-const Marquee: React.FC<MarqueeProps> = ({
-  children,
-  direction = 'left',
-  pauseOnHover = false,
-  reverse = false,
-  speed = 20,
+export default function Marquee({
   className,
-}) => {
-  const marqueeClass = cn(
-    "flex overflow-hidden",
-    direction === 'left' ? "animate-marquee" : "animate-marquee-reverse",
-    pauseOnHover && "hover:[animation-play-state:paused]",
-    className
-  );
-
-  const contentClass = cn(
-    "flex min-w-full items-center justify-around",
-    reverse && "flex-row-reverse"
-  );
-
+  reverse,
+  pauseOnHover = false,
+  children,
+  vertical = false,
+  repeat = 4,
+  ...props
+}: MarqueeProps) {
   return (
-    <div className={marqueeClass} style={{ '--duration': `${speed}s` } as React.CSSProperties}>
-      <div className={contentClass}>
-        {children}
-      </div>
-      <div className={contentClass} aria-hidden="true">
-        {children}
-      </div>
+    <div
+      {...props}
+      className={cn(
+        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        {
+          "flex-row": !vertical,
+          "flex-col": vertical,
+        },
+        className,
+      )}
+    >
+      {Array(repeat)
+        .fill(0)
+        .map((_, i) => (
+          <div
+            key={i}
+            className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+              "animate-marquee flex-row": !vertical,
+              "animate-marquee-vertical flex-col": vertical,
+              "group-hover:[animation-play-state:paused]": pauseOnHover,
+              "[animation-direction:reverse]": reverse,
+            })}
+          >
+            {children}
+          </div>
+        ))}
     </div>
   );
-};
-
-export default Marquee;
+}

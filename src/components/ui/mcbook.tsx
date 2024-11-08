@@ -7,7 +7,7 @@ export interface MacbookProps extends SVGProps<SVGSVGElement> {
 }
 
 export default function MacBook({
-  width = 900,
+  width = 1000,
   height = 600,
   src,
   ...props
