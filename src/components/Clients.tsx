@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
-
+import ejercitoArg from "../../public/clientsIcons/Screenshot_3.jpg";
 
 
 
 const reviews = [
   {
     name: "Ejército Argentino",
-    img: "../../public/clientsIcons/Screenshot_3.jpg",
+    img: ejercitoArg,
   },
   {
     name: "Colegio Milton",
