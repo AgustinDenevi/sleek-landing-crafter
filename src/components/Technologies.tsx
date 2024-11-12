@@ -1,32 +1,38 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
+import react from "../../public/technologiesIcons/react-icon-2048x2048-o8k3ymqa.png";
+import wordPress from "../../public/technologiesIcons/wordpress-icon-2048x2048-nw66awj8.png";
+import flutter from "../../public/technologiesIcons/flutter-icon-1024x1024-vtu2wpze.png"
+import elementor from "../../public/technologiesIcons/Screenshot_3.jpg";
+import aspnet from "../../public/technologiesIcons/aspnet-featured.png";
+import jquery from "../../public/technologiesIcons/jquery-icon-505x512-u4lk43ex.png";
 
 
 
 const reviews = [
   {
     name: "React.JS",
-    img: "../../public/technologiesIcons/react-icon-2048x2048-o8k3ymqa.png",
+    img: react ,
   },
   {
     name: "WordPress",
-    img: "../../public/technologiesIcons/wordpress-icon-2048x2048-nw66awj8.png",
+    img: wordPress,
   },
   {
     name: "Flutter",
-    img: "../../public/technologiesIcons/flutter-icon-1024x1024-vtu2wpze.png",
+    img: flutter ,
   },
   {
     name: "Elementor",
-    img: "../../public/technologiesIcons/Screenshot_3.jpg",
+    img: elementor,
   },
   {
     name: "ASP.Net",
-    img: "../../public/technologiesIcons/aspnet-featured.png",
+    img:aspnet ,
   },
   {
     name: "JQuery",
-    img: "../../public/technologiesIcons/jquery-icon-505x512-u4lk43ex.png",
+    img: jquery,
   },
 ];
 

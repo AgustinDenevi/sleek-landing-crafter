@@ -1,7 +1,11 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import ejercitoArg from "../../public/clientsIcons/Screenshot_3.jpg";
-
+import colegioMilton from "../../public/clientsIcons/277760296_402379445223248_7172542210953580293_n.jpg";
+import estanciasChiripa from "../../public/clientsIcons//Screenshot_3-2.jpg";
+import cirMil from "../../public/clientsIcons/logo_circulo.png";
+import achu from "../../public/clientsIcons/Screenshot_4.jpg";
+import ingEj from "../../public/clientsIcons/300417279_497292045735505_1493508741316747333_n.jpg";
 
 
 const reviews = [
@@ -11,23 +15,23 @@ const reviews = [
   },
   {
     name: "Colegio Milton",
-    img: "../../public/clientsIcons/277760296_402379445223248_7172542210953580293_n.jpg",
+    img: colegioMilton,
   },
   {
     name: "Estancias Chiripa",
-    img: "../../public/clientsIcons/Screenshot_3-2.jpg",
+    img: estanciasChiripa,
   },
   {
     name: "Círculo Militar",
-    img: "../../public/clientsIcons/logo_circulo.png",
+    img: cirMil,
   },
   {
     name: "Acheto Films",
-    img: "../../public/clientsIcons/Screenshot_4.jpg",
+    img: achu,
   },
   {
     name: "Facultad Ingeniería del Ejército",
-    img: "../../public/clientsIcons/300417279_497292045735505_1493508741316747333_n.jpg",
+    img: ingEj,
   },
 ];
 
