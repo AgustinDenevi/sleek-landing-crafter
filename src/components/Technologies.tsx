@@ -6,27 +6,27 @@ import Marquee from "@/components/ui/marquee";
 const reviews = [
   {
     name: "React.JS",
-    img: "https://avatar.vercel.sh/jack",
+    img: "../../public/technologiesIcons/react-icon-2048x2048-o8k3ymqa.png",
   },
   {
     name: "WordPress",
-    img: "https://avatar.vercel.sh/jill",
+    img: "../../public/technologiesIcons/wordpress-icon-2048x2048-nw66awj8.png",
   },
   {
     name: "Flutter",
-    img: "https://avatar.vercel.sh/john",
+    img: "../../public/technologiesIcons/flutter-icon-1024x1024-vtu2wpze.png",
   },
   {
     name: "Elementor",
-    img: "https://avatar.vercel.sh/jane",
+    img: "../../public/technologiesIcons/Screenshot_3.jpg",
   },
   {
     name: "ASP.Net",
-    img: "https://avatar.vercel.sh/jenny",
+    img: "../../public/technologiesIcons/aspnet-featured.png",
   },
   {
     name: "JQuery",
-    img: "https://avatar.vercel.sh/james",
+    img: "../../public/technologiesIcons/jquery-icon-505x512-u4lk43ex.png",
   },
 ];
 
@@ -49,7 +49,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-col items-center">
-        <img className="rounded-full w-25 h-25" alt="" src={img} />
+        <img className="rounded-full w-[120px] h-[120]" alt="" src={img} />
         <figcaption className="text-sm font-medium dark:text-white mt-2">
           {name}
         </figcaption>

@@ -1,30 +1,33 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 
+
+
+
 const reviews = [
   {
     name: "Ejército Argentino",
-    img: "https://avatar.vercel.sh/jack",
+    img: "../../public/clientsIcons/Screenshot_3.jpg",
   },
   {
     name: "Colegio Milton",
-    img: "https://avatar.vercel.sh/jill",
+    img: "../../public/clientsIcons/277760296_402379445223248_7172542210953580293_n.jpg",
   },
   {
     name: "Estancias Chiripa",
-    img: "https://avatar.vercel.sh/john",
+    img: "../../public/clientsIcons/Screenshot_3-2.jpg",
   },
   {
     name: "Círculo Militar",
-    img: "https://avatar.vercel.sh/jane",
+    img: "../../public/clientsIcons/logo_circulo.png",
   },
   {
     name: "Acheto Films",
-    img: "https://avatar.vercel.sh/jenny",
+    img: "../../public/clientsIcons/Screenshot_4.jpg",
   },
   {
     name: "Facultad Ingeniería del Ejército",
-    img: "https://avatar.vercel.sh/james",
+    img: "../../public/clientsIcons/300417279_497292045735505_1493508741316747333_n.jpg",
   },
 ];
 
@@ -47,7 +50,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-col items-center">
-        <img className="rounded-full w-25 h-25" alt="" src={img} />
+        <img className="rounded-full " alt="" src={img} style={{ width: '120px', height: '120px' }}/>
         <figcaption className="text-sm font-medium dark:text-white mt-2">
           {name}
         </figcaption>
@@ -58,7 +61,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex h-[200px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl mt-[10px]">
+    <div className="relative flex h-[210px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl mt-[5px] ">
       <Marquee reverse pauseOnHover className="[--duration:20s]">
       {reviews.map((review) =>(
           <ReviewCard key={review.name} {...review} />
