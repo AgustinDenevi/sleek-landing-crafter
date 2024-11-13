@@ -12,26 +12,32 @@ const reviews = [
   {
     name: "Ejército Argentino",
     img: ejercitoArg,
+    url: "https://www.argentina.gob.ar/ejercito"
   },
   {
     name: "Colegio Milton",
     img: colegioMilton,
+    url: "https://colegio-milton.netlify.app/"
   },
   {
     name: "Estancias Chiripa",
     img: estanciasChiripa,
+    url: ""
   },
   {
     name: "Círculo Militar",
     img: cirMil,
+    url: "https://www.circulomilitar.org.ar/"
   },
   {
     name: "Acheto Films",
     img: achu,
+    url: "https://achetofilms.com/"
   },
   {
     name: "Facultad Ingeniería del Ejército",
     img: ingEj,
+    url: ""
   },
 ];
 
@@ -41,9 +47,11 @@ const secondRow = reviews.slice(reviews.length / 2);
 const ReviewCard = ({
   img,
   name,
+  url,
 }: {
   img: string;
   name: string;
+  url: string;
 }) => {
   return (
     <figure
@@ -54,7 +62,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-col items-center">
-        <img className="rounded-full " alt="" src={img} style={{ width: '120px', height: '120px' }}/>
+        <a href={url} target="_blank"><img className="rounded-full " alt="" src={img} style={{ width: '120px', height: '120px' }}/></a>
         <figcaption className="text-sm font-medium dark:text-white mt-2">
           {name}
         </figcaption>
@@ -70,6 +78,7 @@ export function MarqueeDemo() {
       {reviews.map((review) =>(
           <ReviewCard key={review.name} {...review} />
         ))}
+     
       </Marquee>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black dark:from-background"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black dark:from-background"></div>
