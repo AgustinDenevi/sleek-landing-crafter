@@ -17,7 +17,7 @@ const reviews = [
   {
     name: "Colegio Milton",
     img: colegioMilton,
-    url: "https://colegio-milton.netlify.app/"
+    url: ""
   },
   {
     name: "Estancias Chiripa",
