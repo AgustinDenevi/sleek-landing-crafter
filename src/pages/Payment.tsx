@@ -11,7 +11,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 
-
 const Payment = () => {
   const [plan, setPlan] = useState('standard');
   const [paymentMethod, setPaymentMethod] = useState('stripe');
@@ -82,104 +81,148 @@ const Payment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white py-20 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-[#0A0B0D] text-white">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <Button
           variant="ghost"
-          className="mb-6 text-white hover:text-black/80"
+          className="mb-6 text-white/80 hover:text-white"
           onClick={() => navigate(-1)}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back
         </Button>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800"
-        >
-          <h1 className="text-3xl font-bold mb-8">Complete your subscription</h1>
-          
-          <div className="mb-8">
-            <Label>Select your plan</Label>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Left Column - Plan Details */}
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Subscribe to IsCoders</h1>
+            
             <ToggleGroup 
               type="single" 
               value={plan}
               onValueChange={(value) => value && setPlan(value)}
-              className="mt-2 justify-start bg-zinc-800/50 p-1 rounded-full"
+              className="justify-start bg-white/5 p-1 rounded-full"
             >
               <ToggleGroupItem 
                 value="standard" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500"
+                className="rounded-full px-6 data-[state=on]:bg-white data-[state=on]:text-black"
               >
                 Standard
               </ToggleGroupItem>
               
               <ToggleGroupItem 
                 value="pro" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center gap-1"
+                className="rounded-full px-6 data-[state=on]:bg-white data-[state=on]:text-black flex items-center gap-1"
               >
                 Pro <Zap className="w-4 h-4 text-yellow-400" />
               </ToggleGroupItem>
 
               <ToggleGroupItem 
                 value="custom" 
-                className="rounded-full px-6 data-[state=on]:bg-black data-[state=on]:text-blue-500 flex items-center justify-between  gap-1"
+                className="rounded-full px-6 data-[state=on]:bg-white data-[state=on]:text-black flex items-center gap-1"
               >
-                Custom
-                <Brush className="w-4 h-4 text-cyan-400" />
+                Custom <Brush className="w-4 h-4 text-cyan-400" />
               </ToggleGroupItem>
             </ToggleGroup>
+
+            <Card className="bg-white/5 border-white/10 p-6">
+              <div className="space-y-2">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-bold">USD ${currentPlan.price}</span>
+                  <span className="text-white/60">/month</span>
+                </div>
+                <p className="text-white/60">{currentPlan.description}</p>
+              </div>
+            </Card>
           </div>
 
-          <Card className="bg-zinc-800/50 p-6 mb-8">
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-bold text-white">${currentPlan.price}</span>
-              <span className="text-zinc-400">/m</span>
-            </div>
-            <p className="text-zinc-400">{currentPlan.description}</p>
-          </Card>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {plan !== 'custom' && (
+          {/* Right Column - Payment Form */}
+          <div className="bg-white/5 p-8 rounded-xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
-                <Label>Select payment method</Label>
+                <h2 className="text-xl font-semibold">Contact Information</h2>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="your@email.com"
+                    className="bg-white/5 border-white/10"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-xl font-semibold">Payment Method</h2>
                 <RadioGroup
                   value={paymentMethod}
                   onValueChange={setPaymentMethod}
                   className="grid grid-cols-2 gap-4"
                 >
-                  <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                    <RadioGroupItem value="stripe" id="stripe" className="text-yellow-500" />
-                    <Label htmlFor="stripe" className="cursor-pointer">Credit/Debit Card</Label>
+                  <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10">
+                    <RadioGroupItem value="stripe" id="stripe" />
+                    <Label htmlFor="stripe" className="cursor-pointer">Credit Card</Label>
                   </div>
-                  <div className="flex items-center space-x-2 bg-zinc-800/50 p-4 rounded-lg cursor-pointer">
-                    <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-500" />
+                  <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10">
+                    <RadioGroupItem value="mercadopago" id="mercadopago" />
                     <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
                   </div>
                 </RadioGroup>
               </div>
-            )}
 
-            {plan === 'custom' && (
-              <div className="flex justify-center">
-                <Button 
-                  type="button"
-                  className="w-full bg-white text-black hover:bg-zinc-200"
-                  onClick={() => window.open('https://cal-web-wzho.onrender.com/frank/15min', '_blank')}
-                >
-                  Schedule an Appointment
-                </Button>
+              <div className="space-y-4">
+                <h2 className="text-xl font-semibold">Billing Information</h2>
+                <div className="grid gap-4">
+                  <div>
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input 
+                      id="name" 
+                      placeholder="John Doe"
+                      className="bg-white/5 border-white/10"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="address">Address</Label>
+                    <Input 
+                      id="address" 
+                      placeholder="123 Main St"
+                      className="bg-white/5 border-white/10"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="city">City</Label>
+                      <Input 
+                        id="city" 
+                        placeholder="City"
+                        className="bg-white/5 border-white/10"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="zip">ZIP Code</Label>
+                      <Input 
+                        id="zip" 
+                        placeholder="12345"
+                        className="bg-white/5 border-white/10"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
 
-            {plan !== 'custom' && (
-              <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200">
-                Continue to payment
+              <Button 
+                type="submit" 
+                className="w-full bg-white text-black hover:bg-white/90"
+              >
+                Subscribe Now
               </Button>
-            )}
-          </form>
-        </motion.div>
+
+              <p className="text-sm text-white/60 text-center">
+                By confirming your subscription, you allow IsCoders to charge your card for this payment and future payments in accordance with their terms.
+              </p>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
