@@ -62,7 +62,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-col items-center">
-        <a href={url} target="_blank"><img className="rounded-full " alt="" src={img} style={{ width: '120px', height: '120px' }}/></a>
+        <a href={url} target="_blank"><img className="rounded-full " alt="" src={img} style={{ width: '80px', height: '80px' }}/></a>
         <figcaption className="text-sm font-medium dark:text-white mt-2">
           {name}
         </figcaption>
