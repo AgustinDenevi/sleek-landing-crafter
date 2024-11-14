@@ -128,7 +128,7 @@ const Payment = () => {
             <Card className="bg-white/5 border-white/10 p-6">
               <div className="space-y-2">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold">USD ${currentPlan.price}</span>
+                  <span className="text-3xl text-white font-bold">USD ${currentPlan.price}</span>
                   <span className="text-white/60">/month</span>
                 </div>
                 <p className="text-white/60">{currentPlan.description}</p>
@@ -160,11 +160,11 @@ const Payment = () => {
                   className="grid grid-cols-2 gap-4"
                 >
                   <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10">
-                    <RadioGroupItem value="stripe" id="stripe" />
+                    <RadioGroupItem value="stripe" id="stripe" className="text-yellow-400 border-blue-900 focus:border-yellow-400" />
                     <Label htmlFor="stripe" className="cursor-pointer">Credit Card</Label>
                   </div>
                   <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10">
-                    <RadioGroupItem value="mercadopago" id="mercadopago" />
+                    <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-400 border-blue-900 focus:border-yellow-400"/>
                     <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
                   </div>
                 </RadioGroup>
