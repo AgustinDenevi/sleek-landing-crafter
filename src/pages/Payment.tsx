@@ -163,7 +163,7 @@ const Payment = () => {
                     <RadioGroupItem value="stripe" id="stripe" className="text-yellow-400 border-blue-900 focus:border-yellow-400" />
                     <Label htmlFor="stripe" className="cursor-pointer">Credit Card</Label>
                   </div>
-                  <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10">
+                  <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg cursor-pointer border border-white/10 ">
                     <RadioGroupItem value="mercadopago" id="mercadopago" className="text-yellow-400 border-blue-900 focus:border-yellow-400"/>
                     <Label htmlFor="mercadopago" className="cursor-pointer">MercadoPago</Label>
                   </div>
