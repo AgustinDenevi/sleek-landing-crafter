@@ -52,7 +52,8 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2 text-white"
         >
-          <HyperText className="text-6xl " text="We build : " />
+          <motion.h2 className="text-6xl">We build</motion.h2>
+
           <WordRotate
             className="text-12xl m-5 font-bold text-white dark:text-white"
             words={["Custom Software", "Mobile Apps", "Web Pages"]}
